@@ -1,0 +1,11 @@
+#queryform {
+  width: 120px;
+  margin: auto;
+  text-align: center;
+}
+
+#queryform > * {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
