@@ -36,7 +36,7 @@ class PokemonDB {
         foreach ($this->collection as $pokemon) {
             if (strtolower($pokemon->type1) == strtolower($type)) {
                 array_push($newColl, $pokemon);
-            } else if (strtolower($pokemon->type2 )== strtolower($type)) {
+            } elseif (strtolower($pokemon->type2) == strtolower($type)) {
                 array_push($newColl, $pokemon);
             }
         }
@@ -57,6 +57,19 @@ class PokemonDB {
         foreach ($this->collection as $pokemon) {
             $statnum = $pokemon->$stat;
             if ($statnum >= $min && $statnum <= $max) {
+                array_push($newColl, $pokemon);
+            }
+        }
+        return new PokemonDB($newColl);
+    }
+
+    function findGeneration($generation) {
+        if ($generation == null) {
+            return $this;
+        }
+        $newColl = [];
+        foreach ($this->collection as $pokemon) {
+            if($pokemon->generation == $generation) {
                 array_push($newColl, $pokemon);
             }
         }
@@ -88,8 +101,6 @@ function handleUserQuery() {
     $objlist = json_decode($json_str);
     $db = new PokemonDB($objlist);
 
-    debugToConsole($db->findNumber(100));
-
     $number = $_GET["number"];
     $name = $_GET["name"];
     $type1 = $_GET["type1"];
@@ -100,15 +111,29 @@ function handleUserQuery() {
     $attackmin = $_GET["attackmin"];
     $defensemax = $_GET["defensemax"];
     $defensemin = $_GET["defensemin"];
-    $spattmax = $_GET["spattmax"];
-    $spattmin = $_GET["spattmin"];
+    $spattmax = $_GET["spatkmax"];
+    $spatkmin = $_GET["spatkmin"];
     $spdefmax = $_GET["spdefmax"];
     $spdefmin = $_GET["spdefmin"];
     $speedmax = $_GET["speedmax"];
     $speedmin = $_GET["speedmin"];
+    $generation = $_GET["generation"];
+    $legendary = $_GET["legendary"];
 
-    // debugToConsole($db->findNumber($number)->findName($name)->findType($type1)
-    //                     ->findType($type2)->findStat());
+    debugToConsole($db->findNumber($number)
+                        ->findName($name)
+                        ->findType($type1)
+                        ->findType($type2)
+                        ->findStat("hp", $hpmin, $hpmax)
+                        ->findStat("attack", $attackmin, $attackmax)
+                        ->findStat("defense", $defensemin, $defensemax)
+                        ->findStat("spatk", $spatkmin, $spattmax)
+                        ->findStat("spdef", $spdefmin, $spdefmax)
+                        ->findStat("speed", $speedmin, $speedmax)
+                        ->findGeneration($generation)
+                        ->findLegendary($legendary)
+                    );
+
 }
 
 handleUserQuery();
