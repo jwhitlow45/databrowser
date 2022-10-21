@@ -7,7 +7,7 @@ html{
 body > * {
   margin: auto;
   text-align: center;
-  width: 1450;
+  width: 1550;
 }
 
 body > header {
@@ -64,7 +64,7 @@ button:hover {
 }
 
 #stats-table {
-  width: 200px;
+  width: 300px;
   border-collapse: collapse;
   margin-right: 350px;
 }
@@ -77,6 +77,12 @@ button:hover {
   margin-bottom: 60px;
 }
 
-.disp {
-  width: 100px;
+#disp-name {
+  width: 200px;
+}
+
+.disp-stat {
+  background-color: lightblue;
+
+  transition: width 0.25s ease-out;
 }
