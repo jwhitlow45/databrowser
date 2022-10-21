@@ -135,11 +135,14 @@ function handleUserQuery() {
                         ->findGeneration($generation)
                         ->findLegendary($legendary);
 
-    foreach ($queryResult->collection as $result) {
-        echo $result;
-    }
-
+    return $queryResult;
 }
-
-handleUserQuery();
 ?>
+
+<script type="text/javascript" src="index.js"></script>
+
+
+<script>
+    response = <?php echo json_encode(handleUserQuery()); ?>;
+    handlePHPResponse(response);
+</script>
