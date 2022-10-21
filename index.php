@@ -1,5 +1,7 @@
 <?php
 
+include('index.html');
+
 class PokemonDB {
     function __construct($collection) {
         $this->collection = $collection;
@@ -101,26 +103,26 @@ function handleUserQuery() {
     $objlist = json_decode($json_str);
     $db = new PokemonDB($objlist);
 
-    $number = $_GET["number"];
-    $name = $_GET["name"];
-    $type1 = $_GET["type1"];
-    $type2 = $_GET["type2"];
-    $hpmax = $_GET["hpmax"];
-    $hpmin = $_GET["hpmin"];
-    $attackmax = $_GET["attackmax"];
-    $attackmin = $_GET["attackmin"];
-    $defensemax = $_GET["defensemax"];
-    $defensemin = $_GET["defensemin"];
-    $spattmax = $_GET["spatkmax"];
-    $spatkmin = $_GET["spatkmin"];
-    $spdefmax = $_GET["spdefmax"];
-    $spdefmin = $_GET["spdefmin"];
-    $speedmax = $_GET["speedmax"];
-    $speedmin = $_GET["speedmin"];
-    $generation = $_GET["generation"];
-    $legendary = $_GET["legendary"];
+    $number = $_POST["number"];
+    $name = $_POST["name"];
+    $type1 = $_POST["type1"];
+    $type2 = $_POST["type2"];
+    $hpmax = $_POST["hpmax"];
+    $hpmin = $_POST["hpmin"];
+    $attackmax = $_POST["attackmax"];
+    $attackmin = $_POST["attackmin"];
+    $defensemax = $_POST["defensemax"];
+    $defensemin = $_POST["defensemin"];
+    $spattmax = $_POST["spatkmax"];
+    $spatkmin = $_POST["spatkmin"];
+    $spdefmax = $_POST["spdefmax"];
+    $spdefmin = $_POST["spdefmin"];
+    $speedmax = $_POST["speedmax"];
+    $speedmin = $_POST["speedmin"];
+    $generation = $_POST["generation"];
+    $legendary = $_POST["legendary"];
 
-    debugToConsole($db->findNumber($number)
+    $queryResult = $db->findNumber($number)
                         ->findName($name)
                         ->findType($type1)
                         ->findType($type2)
@@ -131,8 +133,11 @@ function handleUserQuery() {
                         ->findStat("spdef", $spdefmin, $spdefmax)
                         ->findStat("speed", $speedmin, $speedmax)
                         ->findGeneration($generation)
-                        ->findLegendary($legendary)
-                    );
+                        ->findLegendary($legendary);
+
+    foreach ($queryResult->collection as $result) {
+        echo $result;
+    }
 
 }
 
