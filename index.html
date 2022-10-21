@@ -3,7 +3,7 @@
     <meta lang="en">
     <meta charset="utf-8">
     <link rel="stylesheet" href="index.css">
-    <title>Pokemon DB</title>
+    <title>Pokemon DB Search</title>
   </head>
   <body>
     <header>Pokemon DB Search</header>
@@ -11,10 +11,10 @@
       <tr>
         <td>
           <form action="index.php" id="query-form" method="POST">
-            <label name="number">Number:</label>
-            <input name="number" type="number">
             <label name="name">Name:</label>
             <input name="name" type="text">
+            <label name="number">Number:</label>
+            <input name="number" type="number">
             <label name="type1">Type 1:</label>
             <select name="type1">
               <option value="">None</option>
@@ -105,72 +105,72 @@
               <option value="false">False</option>
             </select>
     
-            <input type="submit">
+            <input id="submit" type="submit">
           </form>
         </td>
         <td>
-          <table>
+          <table id="scroll-menu">
             <tr>
               <td colspan="2">
                 <button onclick="jumpToScrollStart()">Start</button>
-                <button onclick="collectionScroll(-1)">Left</button>
-                <button onclick="collectionScroll(1)">Right</button>
+                <button onclick="collectionScroll(-1)">Prev</button>
+                <button onclick="collectionScroll(1)">Next</button>
                 <button onclick="jumpToScrollEnd()">End</button>
               </td>
             </tr>
             <tr>
               <td>
-                <img id="disp-pokemon-img">
+                <img id="disp-pokemon-img" src="./data/images/placeholder.png">
               </td>
               <td>
-                <table>
-                  <tr>
-                    <td>Number</td>
-                    <td id="disp-number"></td>
-                  </tr>
+                <table id="stats-table">
                   <tr>
                     <td>Name</td>
-                    <td id="disp-name"></td>
+                    <td id="disp-name">???</td>
                   </tr>  
                   <tr>
+                    <td>Number</td>
+                    <td id="disp-number">???</td>
+                  </tr>
+                  <tr>
                     <td>Type 1</td>
-                    <td id="disp-type1"></td>
+                    <td id="disp-type1">???</td>
                   </tr>  
                   <tr>
                     <td>Type 2</td>
-                    <td id="disp-type2"></td>
+                    <td id="disp-type2">???</td>
                   </tr>  
                   <tr>
                     <td>HP</td>
-                    <td id="disp-hp"></td>
+                    <td id="disp-hp">???</td>
                   </tr>  
                   <tr>
                     <td>Attack</td>
-                    <td id="disp-attack"></td>
+                    <td id="disp-attack">???</td>
                   </tr>  
                   <tr>
                     <td>Defense</td>
-                    <td id="disp-defense"></td>
+                    <td id="disp-defense">???</td>
                   </tr>  
                   <tr>
                     <td>SpAtk</td>
-                    <td id="disp-spatk"></td>
+                    <td id="disp-spatk">???</td>
                   </tr>  
                   <tr>
                     <td>SpDef</td>
-                    <td id="disp-spdef"></td>
+                    <td id="disp-spdef">???</td>
                   </tr>  
                   <tr>
                     <td>Speed</td>
-                    <td id="disp-speed"></td>
+                    <td id="disp-speed">???</td>
                   </tr>  
                   <tr>
                     <td>Generation</td>
-                    <td id="disp-generation"></td>
+                    <td id="disp-generation">???</td>
                   </tr>  
                   <tr>
                     <td>Legendary</td>
-                    <td id="disp-legendary"></td>
+                    <td id="disp-legendary">???</td>
                   </tr>  
                 </table>
               </td>
