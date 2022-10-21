@@ -10,120 +10,175 @@
     <table>
       <tr>
         <td>
+          <form action="index.php" id="query-form" method="POST">
+            <label name="number">Number:</label>
+            <input name="number" type="number">
+            <label name="name">Name:</label>
+            <input name="name" type="text">
+            <label name="type1">Type 1:</label>
+            <select name="type1">
+              <option value="">None</option>
+              <option value="normal">Normal</option>
+              <option value="fire">Fire</option>
+              <option value="water">Water</option>
+              <option value="grass">Grass</option>
+              <option value="electric">Electric</option>
+              <option value="ice">Ice</option>
+              <option value="fighting">Fighting</option>
+              <option value="poison">Poison</option>
+              <option value="ground">Ground</option>
+              <option value="flying">Flying</option>
+              <option value="psychic">Psychic</option>
+              <option value="bug">Bug</option>
+              <option value="rock">Rock</option>
+              <option value="ghost">Ghost</option>
+              <option value="dark">Dark</option>
+              <option value="dragon">Dragon</option>
+              <option value="steel">Steel</option>
+              <option value="fairy">Fairy</option>
+            </select>
+            <label name="type2">Type 2:</label>
+            <select name="type2">
+              <option value="">None</option>
+              <option value="normal">Normal</option>
+              <option value="fire">Fire</option>
+              <option value="water">Water</option>
+              <option value="grass">Grass</option>
+              <option value="electric">Electric</option>
+              <option value="ice">Ice</option>
+              <option value="fighting">Fighting</option>
+              <option value="poison">Poison</option>
+              <option value="ground">Ground</option>
+              <option value="flying">Flying</option>
+              <option value="psychic">Psychic</option>
+              <option value="bug">Bug</option>
+              <option value="rock">Rock</option>
+              <option value="ghost">Ghost</option>
+              <option value="dark">Dark</option>
+              <option value="dragon">Dragon</option>
+              <option value="steel">Steel</option>
+              <option value="fairy">Fairy</option>
+            </select>
+            <label name="hpmax">HP Max:</label>
+            <input name="hpmax" type="number">
+    
+            <label name="hpmin">HP Min:</label>
+            <input name="hpmin" type="number">
+    
+            <label name="attackmax">Attack Max:</label>
+            <input name="attackmax" type="number">
+    
+            <label name="attackmin">Attack Min:</label>
+            <input name="attackmin" type="number">
+    
+            <label name="defensemax">Defense Max:</label>
+            <input name="defensemax" type="number">
+    
+            <label name="defensemin">Defense Min:</label>
+            <input name="defensemin" type="number">
+    
+            <label name="spatkmax">Sp.Attack Max:</label>
+            <input name="spatkmax" type="number">
+    
+            <label name="spatkmin">Sp. Attack Min:</label>
+            <input name="spatkmin" type="number">
+    
+            <label name="spdefmax">Sp. Defense Max:</label>
+            <input name="spdefmax" type="number">
+    
+            <label name="spdefmin">Sp. Defense Min:</label>
+            <input name="spdefmin" type="number">
+    
+            <label name="speedmax">Speed Max:</label>
+            <input name="speedmax" type="number">
+    
+            <label name="speedmin">Speed Min:</label>
+            <input name="speedmin" type="number">
+    
+            <label name="generation">Generation:</label>
+            <input name="generation" type="number">
+            
+            <label name="legenary">Legendary:</label>
+            <select name="legendary">
+              <option value="">None</option>
+              <option value="true">True</option>
+              <option value="false">False</option>
+            </select>
+    
+            <input type="submit">
+          </form>
+        </td>
+        <td>
           <table>
             <tr>
-              <td>
-                <form action="index.php" id="query-form" method="POST">
-                  <label name="number">Number:</label>
-                  <input name="number" type="number">
-                  <label name="name">Name:</label>
-                  <input name="name" type="text">
-                  <label name="type1">Type 1:</label>
-                  <select name="type1">
-                    <option value="">None</option>
-                    <option value="normal">Normal</option>
-                    <option value="fire">Fire</option>
-                    <option value="water">Water</option>
-                    <option value="grass">Grass</option>
-                    <option value="electric">Electric</option>
-                    <option value="ice">Ice</option>
-                    <option value="fighting">Fighting</option>
-                    <option value="poison">Poison</option>
-                    <option value="ground">Ground</option>
-                    <option value="flying">Flying</option>
-                    <option value="psychic">Psychic</option>
-                    <option value="bug">Bug</option>
-                    <option value="rock">Rock</option>
-                    <option value="ghost">Ghost</option>
-                    <option value="dark">Dark</option>
-                    <option value="dragon">Dragon</option>
-                    <option value="steel">Steel</option>
-                    <option value="fairy">Fairy</option>
-                  </select>
-                  <label name="type2">Type 2:</label>
-                  <select name="type2">
-                    <option value="">None</option>
-                    <option value="normal">Normal</option>
-                    <option value="fire">Fire</option>
-                    <option value="water">Water</option>
-                    <option value="grass">Grass</option>
-                    <option value="electric">Electric</option>
-                    <option value="ice">Ice</option>
-                    <option value="fighting">Fighting</option>
-                    <option value="poison">Poison</option>
-                    <option value="ground">Ground</option>
-                    <option value="flying">Flying</option>
-                    <option value="psychic">Psychic</option>
-                    <option value="bug">Bug</option>
-                    <option value="rock">Rock</option>
-                    <option value="ghost">Ghost</option>
-                    <option value="dark">Dark</option>
-                    <option value="dragon">Dragon</option>
-                    <option value="steel">Steel</option>
-                    <option value="fairy">Fairy</option>
-                  </select>
-                  <label name="hpmax">HP Max:</label>
-                  <input name="hpmax" type="number">
-
-                  <label name="hpmin">HP Min:</label>
-                  <input name="hpmin" type="number">
-
-                  <label name="attackmax">Attack Max:</label>
-                  <input name="attackmax" type="number">
-
-                  <label name="attackmin">Attack Min:</label>
-                  <input name="attackmin" type="number">
-
-                  <label name="defensemax">Defense Max:</label>
-                  <input name="defensemax" type="number">
-
-                  <label name="defensemin">Defense Min:</label>
-                  <input name="defensemin" type="number">
-
-                  <label name="spatkmax">Sp.Attack Max:</label>
-                  <input name="spatkmax" type="number">
-
-                  <label name="spatkmin">Sp. Attack Min:</label>
-                  <input name="spatkmin" type="number">
-
-                  <label name="spdefmax">Sp. Defense Max:</label>
-                  <input name="spdefmax" type="number">
-
-                  <label name="spdefmin">Sp. Defense Min:</label>
-                  <input name="spdefmin" type="number">
-
-                  <label name="speedmax">Speed Max:</label>
-                  <input name="speedmax" type="number">
-
-                  <label name="speedmin">Speed Min:</label>
-                  <input name="speedmin" type="number">
-
-                  <label name="generation">Generation:</label>
-                  <input name="generation" type="number">
-                  
-                  <label name="legenary">Legendary:</label>
-                  <select name="legendary">
-                    <option value="">None</option>
-                    <option value="true">True</option>
-                    <option value="false">False</option>
-                  </select>
-
-                  <input type="submit">
-                </form>
+              <td colspan="2">
+                <button>Start</button>
+                <button>Left</button>
+                <button>Right</button>
+                <button>End</button>
               </td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
-            </tr>
+              <td>
+                <img src="">
+              </td>
+              <td>
+                <table>
+                  <tr>
+                    <td>Number</td>
+                    <td id="disp-number"></td>
+                  </tr>
+                  <tr>
+                    <td>Name</td>
+                    <td id="disp-name"></td>
+                  </tr>  
+                  <tr>
+                    <td>Type 1</td>
+                    <td id="disp-type1"></td>
+                  </tr>  
+                  <tr>
+                    <td>Type 2</td>
+                    <td id="disp-type2"></td>
+                  </tr>  
+                  <tr>
+                    <td>HP</td>
+                    <td id="disp-hp"></td>
+                  </tr>  
+                  <tr>
+                    <td>Attack</td>
+                    <td id="disp-attack"></td>
+                  </tr>  
+                  <tr>
+                    <td>Defense</td>
+                    <td id="disp-defense"></td>
+                  </tr>  
+                  <tr>
+                    <td>SpAtk</td>
+                    <td id="disp-spatk"></td>
+                  </tr>  
+                  <tr>
+                    <td>SpDef</td>
+                    <td id="disp-spdef"></td>
+                  </tr>  
+                  <tr>
+                    <td>Speed</td>
+                    <td id="disp-speed"></td>
+                  </tr>  
+                  <tr>
+                    <td>Generation</td>
+                    <td id="disp-generation"></td>
+                  </tr>  
+                  <tr>
+                    <td>Legendary</td>
+                    <td id="disp-legendary"></td>
+                  </tr>  
+                </table>
+              </td>
+          </tr>
           </table>
         </td>
       </tr>
-      <tr>
-        <td>
-
-        </td>
-      </tr>
+      
     </table>
 
     <footer>Jacob Whitlow · jwhitlow45@gmail.com · Computer Science · CSCI130</footer>
