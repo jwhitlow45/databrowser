@@ -69,10 +69,6 @@ button:hover {
   margin-right: 350px;
 }
 
-#stats-table tr:hover {
-  background-color: lightgrey;
-}
-
 #result-table {
   margin-bottom: 60px;
 }
