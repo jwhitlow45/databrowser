@@ -65,5 +65,5 @@ function setPokemonAttributes(pokemon) {
 }
 
 function calcBarWidth(htmlelem) {
-  return parseInt(200 * (parseInt(htmlelem.innerText) / 255));
+  return parseInt(100 * (parseInt(htmlelem.innerText) / 255));
 }
