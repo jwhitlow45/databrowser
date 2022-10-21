@@ -6,9 +6,12 @@ class PokemonDB {
     }
 
     function findNumber($num) {
+        if ($num == null) {
+            return $this;
+        }
         $newColl = [];
         foreach ($this->collection as $pokemon) {
-            if ($pokemon->Num == $num) {
+            if ($pokemon->num == $num) {
                 array_push($newColl, $pokemon);
             }
         }
@@ -18,7 +21,7 @@ class PokemonDB {
     function findName($name) {
         $newColl = [];
         foreach ($this->collection as $pokemon) {
-            if (str_contains(strtolower($pokemon->Name), strtolower($name))) {
+            if (str_contains(strtolower($pokemon->name), strtolower($name))) {
                 array_push($newColl, $pokemon);
             }
         }
@@ -26,11 +29,14 @@ class PokemonDB {
     }
 
     function findType($type) {
+        if ($type == null) {
+            return $this;
+        }
         $newColl = [];
         foreach ($this->collection as $pokemon) {
-            if (strtolower($pokemon->Type1) == strtolower($type)) {
+            if (strtolower($pokemon->type1) == strtolower($type)) {
                 array_push($newColl, $pokemon);
-            } else if (strtolower($pokemon->Type2 )== strtolower($type)) {
+            } else if (strtolower($pokemon->type2 )== strtolower($type)) {
                 array_push($newColl, $pokemon);
             }
         }
@@ -38,6 +44,15 @@ class PokemonDB {
     }
 
     function findStat($stat, $min, $max) {
+        if ($stat == null) {
+            return $this;
+        }
+        if ($min == null) {
+            $min = 0;
+        }
+        if ($max == null) {
+            $max = INF;
+        }
         $newColl = [];
         foreach ($this->collection as $pokemon) {
             $statnum = $pokemon->$stat;
@@ -49,9 +64,12 @@ class PokemonDB {
     }
 
     function findLegendary($legendary) {
+        if ($legendary == null) {
+            return $this;
+        }
         $newColl = [];
         foreach ($this->collection as $pokemon) {
-            if (strtolower($pokemon->Legendary) == strtolower($legendary)) {
+            if (strtolower($pokemon->legendary) == strtolower($legendary)) {
                 array_push($newColl, $pokemon);
             }
         }
@@ -65,12 +83,12 @@ function debugToConsole($msg) {
 
 function handleUserQuery() {
 
+    // get data from json db and store in pokemon db class to allow easy searching
     $json_str = file_get_contents("./data/pokemondb.json");
     $objlist = json_decode($json_str);
-
     $db = new PokemonDB($objlist);
 
-    debugToConsole($db->findName("char"));
+    debugToConsole($db->findNumber(100));
 
     $number = $_GET["number"];
     $name = $_GET["name"];
@@ -89,6 +107,8 @@ function handleUserQuery() {
     $speedmax = $_GET["speedmax"];
     $speedmin = $_GET["speedmin"];
 
+    // debugToConsole($db->findNumber($number)->findName($name)->findType($type1)
+    //                     ->findType($type2)->findStat());
 }
 
 handleUserQuery();
