@@ -112,15 +112,15 @@
           <table>
             <tr>
               <td colspan="2">
-                <button>Start</button>
-                <button>Left</button>
-                <button>Right</button>
-                <button>End</button>
+                <button onclick="jumpToScrollStart()">Start</button>
+                <button onclick="collectionScroll(-1)">Left</button>
+                <button onclick="collectionScroll(1)">Right</button>
+                <button onclick="jumpToScrollEnd()">End</button>
               </td>
             </tr>
             <tr>
               <td>
-                <img src="">
+                <img id="disp-pokemon-img">
               </td>
               <td>
                 <table>

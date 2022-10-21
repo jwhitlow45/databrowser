@@ -140,8 +140,6 @@ function handleUserQuery() {
 ?>
 
 <script type="text/javascript" src="index.js"></script>
-
-
 <script>
     response = <?php echo json_encode(handleUserQuery()); ?>;
     handlePHPResponse(response);
