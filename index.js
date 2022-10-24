@@ -4,6 +4,10 @@ var index;
 function handlePHPResponse(response) {
   response = response["collection"];
   collection = response;
+  if (collection.length < 1) {
+    index = 0;
+    return;
+  }
   setPokemonAttributes(collection[0]);
   index = 0;
 }
@@ -29,6 +33,10 @@ function jumpToScrollEnd() {
 }
 
 function setPokemonAttributes(pokemon) {
+  if (collection.length < 1) {
+    return;
+  }
+
   let numhtml = document.getElementById("disp-number");
   let namehtml = document.getElementById("disp-name");
   let type1html = document.getElementById("disp-type1");
