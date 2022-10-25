@@ -10,7 +10,7 @@
     <table>
       <tr>
         <td>
-          <form action="index.php" id="query-form" method="POST">
+          <form id="query-form">
             <label name="name">Name:</label>
             <input name="name" type="text">
             <label name="number">Number:</label>
@@ -112,10 +112,10 @@
           <table id="result-table">
             <tr>
               <td id="scroll-menu">
-                <button onclick="jumpToScrollStart()">Start</button>
-                <button onclick="collectionScroll(-1)">Prev</button>
-                <button onclick="collectionScroll(1)">Next</button>
-                <button onclick="jumpToScrollEnd()">End</button>
+                <button id="scroll-start">Start</button>
+                <button id="scroll-prev">Prev</button>
+                <button id="scroll-next">Next</button>
+                <button id="scroll-end">End</button>
               </td>
             </tr>
             <tr>

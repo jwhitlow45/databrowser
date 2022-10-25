@@ -1,7 +1,5 @@
 <?php
 
-include('index.html');
-
 class PokemonDB {
     function __construct($collection) {
         $this->collection = $collection;
@@ -135,12 +133,8 @@ function handleUserQuery() {
                         ->findGeneration($generation)
                         ->findLegendary($legendary);
 
-    return $queryResult;
+    echo json_encode($queryResult);
 }
-?>
 
-<script type="text/javascript" src="index.js"></script>
-<script>
-    response = <?php echo json_encode(handleUserQuery()); ?>;
-    handlePHPResponse(response);
-</script>
+handleUserQuery();
+?>
