@@ -1,31 +1,7 @@
 var collection;
 var index;
 
-// stat html elements
-const numhtml = document.getElementById("disp-number");
-const namehtml = document.getElementById("disp-name");
-const type1html = document.getElementById("disp-type1");
-const type2html = document.getElementById("disp-type2");
-const hphtml = document.getElementById("disp-hp");
-const attackhtml = document.getElementById("disp-attack");
-const defensehtml = document.getElementById("disp-defense");
-const spatkhtml = document.getElementById("disp-spatk");
-const spdefhtml = document.getElementById("disp-spdef");
-const speedhtml = document.getElementById("disp-speed");
-const generationhtml = document.getElementById("disp-generation");
-const legendaryhtml = document.getElementById("disp-legendary");
-const imghtml = document.getElementById("disp-pokemon-img");
-
-// event listeners for page buttons
-const scroll_start = document.getElementById("scroll-start");
-scroll_start.addEventListener('click', function() {jumpToScrollStart()});
-const scroll_prev = document.getElementById("scroll-prev");
-scroll_prev.addEventListener('click', function() {collectionScroll(-1)});
-const scroll_next = document.getElementById("scroll-next");
-scroll_next.addEventListener('click', function() {collectionScroll(1)});
-const scroll_end = document.getElementById("scroll-end");
-scroll_end.addEventListener('click', function() {jumpToScrollEnd()});
-
+// form handler
 const form = document.getElementById("query-form");
 const query = document.getElementById("query");
 const insert = document.getElementById("insert");
@@ -72,6 +48,31 @@ function handlePHPResponse(response) {
   setPokemonAttributes(collection[0]);
   index = 0;
 }
+
+// stat html elements
+const numhtml = document.getElementById("disp-number");
+const namehtml = document.getElementById("disp-name");
+const type1html = document.getElementById("disp-type1");
+const type2html = document.getElementById("disp-type2");
+const hphtml = document.getElementById("disp-hp");
+const attackhtml = document.getElementById("disp-attack");
+const defensehtml = document.getElementById("disp-defense");
+const spatkhtml = document.getElementById("disp-spatk");
+const spdefhtml = document.getElementById("disp-spdef");
+const speedhtml = document.getElementById("disp-speed");
+const generationhtml = document.getElementById("disp-generation");
+const legendaryhtml = document.getElementById("disp-legendary");
+const imghtml = document.getElementById("disp-pokemon-img");
+
+// event listeners for scroll buttons
+const scroll_start = document.getElementById("scroll-start");
+scroll_start.addEventListener('click', function() {jumpToScrollStart()});
+const scroll_prev = document.getElementById("scroll-prev");
+scroll_prev.addEventListener('click', function() {collectionScroll(-1)});
+const scroll_next = document.getElementById("scroll-next");
+scroll_next.addEventListener('click', function() {collectionScroll(1)});
+const scroll_end = document.getElementById("scroll-end");
+scroll_end.addEventListener('click', function() {jumpToScrollEnd()});
 
 function collectionScroll(direction) {
   index += direction;
@@ -121,6 +122,10 @@ function setPokemonAttributes(pokemon) {
     return;
   }
 
+  function calcBarWidth(htmlelem) {
+    return parseInt(100 * (parseInt(htmlelem.innerText) / 255));
+  }
+
   numhtml.innerHTML = pokemon.num;
   namehtml.innerHTML = pokemon.name;
   type1html.innerHTML = pokemon.type1;
@@ -140,8 +145,4 @@ function setPokemonAttributes(pokemon) {
   generationhtml.innerHTML = pokemon.generation;
   legendaryhtml.innerHTML = pokemon.legendary;
   imghtml.src = "./data/images/" + pokemon.num + ".png";
-}
-
-function calcBarWidth(htmlelem) {
-  return parseInt(100 * (parseInt(htmlelem.innerText) / 255));
 }
