@@ -27,13 +27,21 @@ const scroll_end = document.getElementById("scroll-end");
 scroll_end.addEventListener('click', function() {jumpToScrollEnd()});
 
 const form = document.getElementById("query-form");
-const submit = document.getElementById("submit");
-submit.addEventListener('click', function(event) {
+const query = document.getElementById("query");
+const insert = document.getElementById("insert");
+query.addEventListener('click', function(event) {
   event.preventDefault();
 
   // format form data
   const formData = new FormData(form);
   queryDB(formData);
+});
+insert.addEventListener('click', function(event) {
+  event.preventDefault();
+  
+  // format form data
+  const formData = new FormData(form);
+  insertDB(formData);
 });
 
 async function queryDB(formData) {
@@ -52,6 +60,10 @@ async function queryDB(formData) {
   }).catch((err) => {
     console.error(err);
   });
+}
+
+async function insertDB(formData) {
+
 }
 
 function handlePHPResponse(response) {

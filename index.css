@@ -37,7 +37,7 @@ body > header {
   text-align: right;
 }
 
-#submit {
+#query, #insert {
   text-align: center;
   margin: 10px auto;
 }
