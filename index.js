@@ -33,12 +33,12 @@ submit.addEventListener('click', function(event) {
 
   // format form data
   const formData = new FormData(form);
-  queryPHPForm(formData);
+  queryDB(formData);
 });
 
-async function queryPHPForm(formData) {
+async function queryDB(formData) {
   
-  fetch('index.php', {
+  fetch('query.php', {
     method: 'POST',
     body: formData
   })
