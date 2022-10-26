@@ -21,7 +21,6 @@ insert.addEventListener('click', function(event) {
 });
 
 async function queryDB(formData) {
-  
   fetch('query.php', {
     method: 'POST',
     body: formData
@@ -32,21 +31,38 @@ async function queryDB(formData) {
     }
     return response.json();
   }).then((json) => {
-    handlePHPResponse(json);
+    handleQueryResponse(json);
   }).catch((err) => {
     console.error(err);
   });
 }
 
 async function insertDB(formData) {
-
+  fetch('insert.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then((response) => {
+    if (!response.ok) {
+      throw response;
+    }
+    return response.json();
+  }).then((json) => {
+    handleInsertResponse(json);
+  }).catch((err) => {
+    console.error(err);
+  });
 }
 
-function handlePHPResponse(response) {
+function handleQueryResponse(response) {
   response = response["collection"];
   collection = response;
   setPokemonAttributes(collection[0]);
   index = 0;
+}
+
+function handleInsertResponse(response) {
+
 }
 
 // stat html elements
