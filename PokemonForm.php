@@ -1,5 +1,5 @@
 <?php
-class PokemonQuery {
+class PokemonForm {
     function __construct() {
         $this->number = "";
         $this->name = "";

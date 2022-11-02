@@ -1,5 +1,5 @@
 <?php
-include('./PokemonQuery.php');
+include('./PokemonForm.php');
 
 class PokemonDB {
     function __construct($collection) {
@@ -102,7 +102,7 @@ function handleUserQuery() {
     $objlist = json_decode($json_str);
     $db = new PokemonDB($objlist);
 
-    $request = new PokemonQuery();
+    $request = new PokemonForm();
     $request->populateFromPostData();
 
     $queryResult = $db->findNumber($request->number)
