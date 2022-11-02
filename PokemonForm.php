@@ -1,29 +1,31 @@
 <?php
 class PokemonForm {
     function __construct() {
-        $this->number = "";
-        $this->name = "";
-        $this->type1 = "";
-        $this->type2 = "";
-        $this->hpmax = "";
-        $this->hpmin = "";
-        $this->attackmax = "";
-        $this->attackmin = "";
-        $this->defensemax = "";
-        $this->defensemin = "";
-        $this->spattmax = "";
-        $this->spatkmin = "";
-        $this->spdefmax = "";
-        $this->spdefmin = "";
-        $this->speedmax = "";
-        $this->speedmin = "";
-        $this->generation = "";
-        $this->legendary = "";
+        $this->attributes = [
+            "number" => "",
+            "name" => "",
+            "type1" => "",
+            "type2" => "",
+            "hpmax" => "",
+            "hpmin" => "",
+            "attackmax" => "",
+            "attackmin" => "",
+            "defensemax" => "",
+            "defensemin" => "",
+            "spattmax" => "",
+            "spatkmin" => "",
+            "spdefmax" => "",
+            "spdefmin" => "",
+            "speedmax" => "",
+            "speedmin" => "",
+            "generation" => "",
+            "legendary" => ""
+        ];
     }
 
     function populateFromPostData() {
-        foreach ($this as $key => $value) {
-            $this->{$key} = $_POST[$key];
+        foreach ($this->attributes as $key => $value) {
+            $this->attributes[$key] = $_POST[$key];
         }
     }
 }

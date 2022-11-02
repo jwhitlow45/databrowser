@@ -48,6 +48,7 @@ async function insertDB(formData) {
     }
     return response.json();
   }).then((json) => {
+    console.log(json);
     handleInsertResponse(json);
   }).catch((err) => {
     console.error(err);

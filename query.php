@@ -91,10 +91,6 @@ class PokemonDB {
     }
 }
 
-function debugToConsole($msg) { 
-    echo "<script>console.log(".json_encode($msg).")</script>";
-}
-
 function handleUserQuery() {
 
     // get data from json db and store in pokemon db class to allow easy searching
@@ -105,18 +101,18 @@ function handleUserQuery() {
     $request = new PokemonForm();
     $request->populateFromPostData();
 
-    $queryResult = $db->findNumber($request->number)
-                        ->findName($request->name)
-                        ->findType($request->type1)
-                        ->findType($request->type2)
-                        ->findStat("hp", $request->hpmin, $request->hpmax)
-                        ->findStat("attack", $request->attackmin, $request->attackmax)
-                        ->findStat("defense", $request->defensemin, $request->defensemax)
-                        ->findStat("spatk", $request->spatkmin, $request->spattmax)
-                        ->findStat("spdef", $request->spdefmin, $request->spdefmax)
-                        ->findStat("speed", $request->speedmin, $request->speedmax)
-                        ->findGeneration($request->generation)
-                        ->findLegendary($request->legendary);
+    $queryResult = $db->findNumber($request->attributes["number"])
+                        ->findName($request->attributes["name"])
+                        ->findType($request->attributes["type1"])
+                        ->findType($request->attributes["type2"])
+                        ->findStat("hp", $request->attributes["hpmin"], $request->attributes["hpmax"])
+                        ->findStat("attack", $request->attributes["attackmin"], $request->attributes["attackmax"])
+                        ->findStat("defense", $request->attributes["defensemin"], $request->attributes["defensemax"])
+                        ->findStat("spatk", $request->attributes["spatkmin"], $request->attributes["spattmax"])
+                        ->findStat("spdef", $request->attributes["spdefmin"], $request->attributes["spdefmax"])
+                        ->findStat("speed", $request->attributes["speedmin"], $request->attributes["speedmax"])
+                        ->findGeneration($request->attributes["generation"])
+                        ->findLegendary($request->attributes["legendary"]);
 
     echo json_encode($queryResult);
 }
