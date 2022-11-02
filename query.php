@@ -1,4 +1,5 @@
 <?php
+include('./PokemonQuery.php');
 
 class PokemonDB {
     function __construct($collection) {
@@ -101,37 +102,21 @@ function handleUserQuery() {
     $objlist = json_decode($json_str);
     $db = new PokemonDB($objlist);
 
-    $number = $_POST["number"];
-    $name = $_POST["name"];
-    $type1 = $_POST["type1"];
-    $type2 = $_POST["type2"];
-    $hpmax = $_POST["hpmax"];
-    $hpmin = $_POST["hpmin"];
-    $attackmax = $_POST["attackmax"];
-    $attackmin = $_POST["attackmin"];
-    $defensemax = $_POST["defensemax"];
-    $defensemin = $_POST["defensemin"];
-    $spattmax = $_POST["spatkmax"];
-    $spatkmin = $_POST["spatkmin"];
-    $spdefmax = $_POST["spdefmax"];
-    $spdefmin = $_POST["spdefmin"];
-    $speedmax = $_POST["speedmax"];
-    $speedmin = $_POST["speedmin"];
-    $generation = $_POST["generation"];
-    $legendary = $_POST["legendary"];
+    $request = new PokemonQuery();
+    $request->populateFromPostData();
 
-    $queryResult = $db->findNumber($number)
-                        ->findName($name)
-                        ->findType($type1)
-                        ->findType($type2)
-                        ->findStat("hp", $hpmin, $hpmax)
-                        ->findStat("attack", $attackmin, $attackmax)
-                        ->findStat("defense", $defensemin, $defensemax)
-                        ->findStat("spatk", $spatkmin, $spattmax)
-                        ->findStat("spdef", $spdefmin, $spdefmax)
-                        ->findStat("speed", $speedmin, $speedmax)
-                        ->findGeneration($generation)
-                        ->findLegendary($legendary);
+    $queryResult = $db->findNumber($request->number)
+                        ->findName($request->name)
+                        ->findType($request->type1)
+                        ->findType($request->type2)
+                        ->findStat("hp", $request->hpmin, $request->hpmax)
+                        ->findStat("attack", $request->attackmin, $request->attackmax)
+                        ->findStat("defense", $request->defensemin, $request->defensemax)
+                        ->findStat("spatk", $request->spatkmin, $request->spattmax)
+                        ->findStat("spdef", $request->spdefmin, $request->spdefmax)
+                        ->findStat("speed", $request->speedmin, $request->speedmax)
+                        ->findGeneration($request->generation)
+                        ->findLegendary($request->legendary);
 
     echo json_encode($queryResult);
 }
