@@ -14,9 +14,12 @@
         <td><button id="delete-button">Delete</button></td>
       </tr>
     </table>
-    <form id="query-form" class="form" hidden="0">
-      <input name="number" type="number" placeholder="number">
-      <input name="name" type="text" placeholder="name">
+    <form id="query-form" class="form">
+      <label name="number">Number</label>
+      <input name="number" type="number">
+      <label name="name">Name</label>
+      <input name="name" type="text">
+      <label name="type1">Type 1</label>
       <select name="type1">
         <option value="normal">Normal</option>
         <option value="fire">Fire</option>
@@ -37,7 +40,9 @@
         <option value="steel">Steel</option>
         <option value="fairy">Fairy</option>
       </select>
+      <label name="type2">Type 2</label>
       <select name="type2">
+        <option value="none">None</option>
         <option value="normal">Normal</option>
         <option value="fire">Fire</option>
         <option value="water">Water</option>
@@ -57,21 +62,103 @@
         <option value="steel">Steel</option>
         <option value="fairy">Fairy</option>
       </select>
-      <input name="hp" type="number" placeholder="hp">
-      <input name="attack" type="number" placeholder="attack">
-      <input name="defense" type="number" placeholder="defense">
-      <input name="spatk" type="number" placeholder="spatk">
-      <input name="spdef" type="number" placeholder="spdef">
-      <input name="speed" type="number" placeholder="speed">
-      <input name="generation" type="number" placeholder="generation">
+      <label name="hpmin">Hp Min</label>
+      <input name="hpmin" type="number">
+      <label name="hpmax">Hp Max</label>
+      <input name="hpmax" type="number">
+      <label name="attackmin">Attack Min</label>
+      <input name="attackmin" type="number">
+      <label name="attackmax">Attack Max</label>
+      <input name="attackmax" type="number">
+      <label name="defensemin">Defense Min</label>
+      <input name="defensemin" type="number">
+      <label name="defensemax">Defense Max</label>
+      <input name="defensemax" type="number">
+      <label name="spatkmin">Sp. Atk Min</label>
+      <input name="spatkmin" type="number">
+      <label name="spatkmax">Sp. Atk Max</label>
+      <input name="spatkmax" type="number">
+      <label name="spdefmin">Sp. Def Min</label>
+      <input name="spdefmin" type="number">
+      <label name="spdefmax">Sp. Def Max</label>
+      <input name="spdefmax" type="number">
+      <label name="speedmin">Speed Min</label>
+      <input name="speedmin" type="number">
+      <label name="speedmax">Speed Max</label>
+      <input name="speedmax" type="number">
+      <label name="generation">Generation</label>
+      <input name="generation" type="number">
       <select name="legendary">
         <option value="true">True</option>
         <option value="false">False</option>
       </select>
     </form>
-    <form id="insert-form" class="form" hidden="1">
-      <label name="other">other</label>
-      <input type="text" name="other">  
+    <form id="insert-form" class="form" hidden>
+      <label name="number">Number</label>
+      <input name="number" type="number">
+      <label name="name">Name</label>
+      <input name="name" type="text">
+      <label name="type1">Type 1</label>
+      <select name="type1">
+        <option value="normal">Normal</option>
+        <option value="fire">Fire</option>
+        <option value="water">Water</option>
+        <option value="grass">Grass</option>
+        <option value="electric">Electric</option>
+        <option value="ice">Ice</option>
+        <option value="fighting">Fighting</option>
+        <option value="poison">Poison</option>
+        <option value="ground">Ground</option>
+        <option value="flying">Flying</option>
+        <option value="psychic">Psychic</option>
+        <option value="bug">Bug</option>
+        <option value="rock">Rock</option>
+        <option value="ghost">Ghost</option>
+        <option value="dark">Dark</option>
+        <option value="dragon">Dragon</option>
+        <option value="steel">Steel</option>
+        <option value="fairy">Fairy</option>
+      </select>
+      <label name="type2">Type 2</label>
+      <select name="type2">
+        <option value="none">None</option>
+        <option value="normal">Normal</option>
+        <option value="fire">Fire</option>
+        <option value="water">Water</option>
+        <option value="grass">Grass</option>
+        <option value="electric">Electric</option>
+        <option value="ice">Ice</option>
+        <option value="fighting">Fighting</option>
+        <option value="poison">Poison</option>
+        <option value="ground">Ground</option>
+        <option value="flying">Flying</option>
+        <option value="psychic">Psychic</option>
+        <option value="bug">Bug</option>
+        <option value="rock">Rock</option>
+        <option value="ghost">Ghost</option>
+        <option value="dark">Dark</option>
+        <option value="dragon">Dragon</option>
+        <option value="steel">Steel</option>
+        <option value="fairy">Fairy</option>
+      </select>
+      <label name="hp">Hp</label>
+      <input name="hp" type="number">
+      <label name="attack">Attack</label>
+      <input name="attack" type="number">
+      <label name="defense">Defense</label>
+      <input name="defense" type="number">
+      <label name="spatk">Sp. Atk</label>
+      <input name="spatk" type="number">
+      <label name="spdef">Sp. Def</label>
+      <input name="spdef" type="number">
+      <label name="speed">Speed</label>
+      <input name="speed" type="number">
+      <label name="generation">Generation</label>
+      <input name="generation" type="number">
+      <select name="legendary">
+        <option value="true">True</option>
+        <option value="false">False</option>
+      </select>
     </form>
     <script src="index.js"></script>
   </body>
