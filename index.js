@@ -81,15 +81,19 @@ async function deleteData(number) {
 
 async function getData() {
   pokemon_arr = await handleFetch('./php/query.php', query_form);
-  index = 0;
-  displayPokemon();
+  if (pokemon_arr.length > 0) {
+    index = 0;
+    displayPokemon();
+  } else {
+    setDBImage('./data/images/placeholder.png');
+    index = -1;
+  } 
   console.log(pokemon_arr);
 }
 
 function displayPokemon() {
-  const image = document.getElementById('pokemon-image');
   let pokemon = pokemon_arr[index];
-  image.src = './data/images/' + pokemon['number'] + '.png';
+  setDBImage('./data/images/' + pokemon['number'] + '.png');
 
   for (let stat in pokemon) {
     if (pokemon[stat] !== '') {
@@ -103,17 +107,26 @@ function displayPokemon() {
   }
 }
 
+function setDBImage(path) {
+  const image = document.getElementById('pokemon-image');
+  image.src = path;
+}
+
 function dbScroll(direction) {
+  if (pokemon_arr.length < 1) return;
   index = (index + direction + pokemon_arr.length) % pokemon_arr.length;
   displayPokemon();
 }
 
 function dbScrollStart() {
+  if (pokemon_arr.length < 1) return;
   index = 0;
   displayPokemon();
 }
 
 function dbScrollEnd() {
+  if (pokemon_arr.length < 1) return;
   index = pokemon_arr.length - 1;
   displayPokemon();
 }
+
