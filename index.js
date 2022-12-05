@@ -9,7 +9,7 @@ const insert_submit = document.getElementById('insert-submit');
 
 query_button.addEventListener('click', showQueryForm);
 insert_button.addEventListener('click', showInsertForm);
-query_submit.addEventListener('click', populateDataBrowser);
+query_submit.addEventListener('click', getData);
 insert_submit.addEventListener('click', insertData);
 resetdb_submit.addEventListener('click', resetDB);
 
@@ -65,7 +65,7 @@ async function deleteData(number) {
   console.log(result);
 }
 
-async function populateDataBrowser() {
+async function getData() {
   let result = await handleFetch('./php/query.php', query_form);
   console.log(result);
 }
