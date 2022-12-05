@@ -13,6 +13,17 @@ query_submit.addEventListener('click', getData);
 insert_submit.addEventListener('click', insertData);
 resetdb_submit.addEventListener('click', resetDB);
 
+const start_button = document.getElementById('start-button');
+const prev_button = document.getElementById('prev-button');
+const next_button = document.getElementById('next-button');
+const end_button = document.getElementById('end-button');
+
+start_button.addEventListener('click', dbScrollStart);
+prev_button.addEventListener('click', function(){ dbScroll(-1)});
+next_button.addEventListener('click', function (){ dbScroll(1)});
+end_button.addEventListener('click', dbScrollEnd);
+
+
 let pokemon_arr = [];
 let index = -1;
 
@@ -69,14 +80,10 @@ async function deleteData(number) {
 }
 
 async function getData() {
-  let result = await handleFetch('./php/query.php', query_form);
-  console.log(result);
-  return result;
-}
-
-async function populateDataBrowser() {
-  pokemon_arr = await getData();
+  pokemon_arr = await handleFetch('./php/query.php', query_form);
   index = 0;
+  displayPokemon();
+  console.log(pokemon_arr);
 }
 
 function displayPokemon() {
@@ -94,4 +101,19 @@ function displayPokemon() {
       cur_stat.innerText = pokemon[stat];
     }
   }
+}
+
+function dbScroll(direction) {
+  index = (index + direction + pokemon_arr.length) % pokemon_arr.length;
+  displayPokemon();
+}
+
+function dbScrollStart() {
+  index = 0;
+  displayPokemon();
+}
+
+function dbScrollEnd() {
+  index = pokemon_arr.length - 1;
+  displayPokemon();
 }
