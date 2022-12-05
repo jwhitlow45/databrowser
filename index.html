@@ -64,9 +64,9 @@
         <option value="steel">Steel</option>
         <option value="fairy">Fairy</option>
       </select>
-      <label name="hpmin">Hp Min</label>
+      <label name="hpmin">HP Min</label>
       <input name="hpmin" type="number">
-      <label name="hpmax">Hp Max</label>
+      <label name="hpmax">HP Max</label>
       <input name="hpmax" type="number">
       <label name="attackmin">Attack Min</label>
       <input name="attackmin" type="number">
@@ -97,6 +97,61 @@
         <option value="0">False</option>
       </select>
       <button id="query-submit">Query</button>
+      <table id="display">
+        <tr>
+          <td>
+            <table>
+              <tr><td colspan="4"><img id="pokemon-image" src="./data/images/placeholder.png"></td></tr>
+              <tr>
+                <td><button id="start-button">&lt;&lt;</button></td>
+                <td><button id="prev-button">&lt;</button></td>
+                <td><button id="next-button">&gt;</button></td>
+                <td><button id="end-button">&gt;&gt;</button></td>
+              </tr>
+            </table>
+          </td>
+          <td>
+            <table>
+              <tr>
+                <td>Number</td>
+                <td id="number" class="stat">???</td>
+                <td>HP</td>
+                <td id="hp" class="stat">???</td>
+              </tr>
+              <tr>
+                <td>Name</td>
+                <td id="name" class="stat">???</td>
+                <td>Attack</td>
+                <td id="attack" class="stat">???</td>
+              </tr>
+              <tr>
+                <td>Type 1</td>
+                <td id="type1" class="stat">???</td>
+                <td>Defense</td>
+                <td id="defense" class="stat">???</td>
+              </tr>
+              <tr>
+                <td>Type 2</td>
+                <td id="type2" class="stat">???</td>
+                <td>Sp. Atk</td>
+                <td id="spatk" class="stat">???</td>
+              </tr>
+              <tr>
+                <td>Generation</td>
+                <td id="generation" class="stat">???</td>
+                <td>Sp. Def</td>
+                <td id="spdef" class="stat">???</td>
+              </tr>
+              <tr>
+                <td>Speed</td>
+                <td id="speed" class="stat">???</td>
+                <td>Legendary</td>
+                <td id="legendary" class="stat">???</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
     </form>
     <form id="insert-form" class="form" onsubmit="return false" hidden>
       <label name="name">Name</label>
@@ -144,7 +199,7 @@
         <option value="steel">Steel</option>
         <option value="fairy">Fairy</option>
       </select>
-      <label name="hp">Hp</label>
+      <label name="hp">HP</label>
       <input name="hp" type="number">
       <label name="attack">Attack</label>
       <input name="attack" type="number">
