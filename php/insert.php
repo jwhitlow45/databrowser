@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         mysqli_stmt_execute($stmt);
     }
     mysqli_stmt_close($stmt);
-    echo 'Successfully inserted data!';
+    echo json_encode('Successfully inserted data!');
 }
 
 ?>
