@@ -1,6 +1,5 @@
 const query_button = document.getElementById('query-button');
 const insert_button = document.getElementById('insert-button');
-const delete_button = document.getElementById('delete-button');
 const resetdb_submit = document.getElementById('resetdb-button');
 const query_form = document.getElementById('query-form');
 const insert_form = document.getElementById('insert-form');
@@ -15,11 +14,13 @@ resetdb_submit.addEventListener('click', resetDB);
 
 const start_button = document.getElementById('start-button');
 const prev_button = document.getElementById('prev-button');
+const delete_button = document.getElementById('delete-button');
 const next_button = document.getElementById('next-button');
 const end_button = document.getElementById('end-button');
 
 start_button.addEventListener('click', dbScrollStart);
 prev_button.addEventListener('click', function(){ dbScroll(-1)});
+delete_button.addEventListener('click', dbDelete);
 next_button.addEventListener('click', function (){ dbScroll(1)});
 end_button.addEventListener('click', dbScrollEnd);
 
@@ -65,6 +66,7 @@ async function resetDB() {
 async function insertData() {
   let result = await handleFetch('./php/insert.php', insert_form);
   console.log(result);
+  alert(result);
 }
 
 async function deleteData(number) {
@@ -127,6 +129,18 @@ function dbScrollStart() {
 function dbScrollEnd() {
   if (pokemon_arr.length < 1) return;
   index = pokemon_arr.length - 1;
+  displayPokemon();
+}
+
+function dbDelete() {
+  if (pokemon_arr.length < 1) return;
+  let number = pokemon_arr[index]['number']
+  // delete from database
+  deleteData(number);
+  // delete from local representation of database
+  pokemon_arr.splice(index, 1);
+  if (index >= pokemon_arr.length)
+    index--;
   displayPokemon();
 }
 
