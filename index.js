@@ -1,6 +1,7 @@
 const query_button = document.getElementById('query-button');
 const insert_button = document.getElementById('insert-button');
 const delete_button = document.getElementById('delete-button');
+const resetdb_submit = document.getElementById('resetdb-button');
 const query_form = document.getElementById('query-form');
 const insert_form = document.getElementById('insert-form');
 const query_submit = document.getElementById('query-submit');
@@ -10,16 +11,25 @@ query_button.addEventListener('click', showQueryForm);
 insert_button.addEventListener('click', showInsertForm);
 query_submit.addEventListener('click', populateDataBrowser);
 insert_submit.addEventListener('click', insertData);
+resetdb_submit.addEventListener('click', resetDB);
 
 async function handleFetch(url, form) {
-  let formData = new FormData(form);
+  let formData;
+  if (form == null) {
+    formData = new FormData();
+  } else {
+    formData = new FormData(form);
+  }
   let result = await fetch(url, {
     method:'POST',
     body: formData
   }).then(response => {
+    if (!response.ok)
+      throw response.err;
     return response.json();
   }).catch(err => {
-    console.log(err); 
+    console.log(err);
+    return err;
   });
   return result;
 }
@@ -34,8 +44,12 @@ function showInsertForm() {
   query_form.hidden = 1;
 }
 
-function insertData() {
+async function resetDB() {
+  await handleFetch('./php/cleardb.php', null);
+}
 
+async function insertData() {
+  let result = await handleFetch('./php/insert.php', insert_form);
 }
 
 async function populateDataBrowser() {

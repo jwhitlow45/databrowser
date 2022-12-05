@@ -9,4 +9,6 @@ if ($stmt = mysqli_prepare($conn, $sql)) {
     mysqli_stmt_close($stmt);
 }
 
+echo json_encode('Succesfully cleared database');
+
 ?>
