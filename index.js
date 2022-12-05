@@ -38,8 +38,7 @@ function insertData() {
 
 }
 
-async function populateDataBrowser(event) {
-  event.preventDefault();
+async function populateDataBrowser() {
   let result = await handleFetch('./php/query.php', query_form);
   console.log(result);
 }

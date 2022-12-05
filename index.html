@@ -14,7 +14,7 @@
         <td><button id="delete-button">Delete</button></td>
       </tr>
     </table>
-    <form id="query-form" class="form">
+    <form id="query-form" class="form" onsubmit="return false">
       <label name="number">Number</label>
       <input name="number" type="number">
       <label name="name">Name</label>
@@ -97,7 +97,7 @@
       </select>
       <button id="query-submit">Query</button>
     </form>
-    <form id="insert-form" class="form" hidden>
+    <form id="insert-form" class="form" onsubmit="return false" hidden>
       <label name="number">Number</label>
       <input name="number" type="number">
       <label name="name">Name</label>
