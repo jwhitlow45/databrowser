@@ -10,9 +10,13 @@ function parse_db_credentials() {
 }
 
 function ensure_tables_exist($conn) {
-    $pokemon_table_query = 'CREATE TABLE IF NOT EXISTS pokemon AS SELECT * FROM pokemon_original;';
-
+    $pokemon_table_query = 'CREATE TABLE IF NOT EXISTS pokemon LIKE pokemon_original';
+    $populate_table_query = 'INSERT IGNORE INTO pokemon SELECT * FROM pokemon_original';
     if ($stmt = mysqli_prepare($conn, $pokemon_table_query)) {
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+    }
+    if ($stmt = mysqli_prepare($conn, $populate_table_query)) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     }
