@@ -53,6 +53,18 @@ async function insertData() {
   console.log(result);
 }
 
+async function deleteData(number) {
+  // build form to package number for post request
+  const temp_form = document.createElement('form');
+  const temp_input = document.createElement('input');
+  temp_input.name = 'number';
+  temp_input.value = number;
+  temp_form.appendChild(temp_input);
+
+  let result = await handleFetch('./php/delete.php', temp_form);
+  console.log(result);
+}
+
 async function populateDataBrowser() {
   let result = await handleFetch('./php/query.php', query_form);
   console.log(result);
