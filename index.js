@@ -50,6 +50,7 @@ async function resetDB() {
 
 async function insertData() {
   let result = await handleFetch('./php/insert.php', insert_form);
+  console.log(result);
 }
 
 async function populateDataBrowser() {
