@@ -94,6 +94,14 @@ async function getData() {
 }
 
 function displayPokemon() {
+  if (pokemon_arr.length < 1) {
+    setDBImage('./data/images/placeholder.png');
+    const stat_values = document.getElementsByClassName('stat');
+    for (let value of stat_values)
+      value.innerText = '???';
+    return;
+  }
+
   let pokemon = pokemon_arr[index];
   setDBImage('./data/images/' + pokemon['number'] + '.png');
 
