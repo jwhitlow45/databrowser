@@ -60,6 +60,8 @@ function showInsertForm() {
 }
 
 async function resetDB() {
+  let isConfirmed = confirm('Are you sure you want to reset the database?\nThis cannot be undone.');
+  if (!isConfirmed) return;
   await handleFetch('./php/cleardb.php', null);
   window.location.reload();
 }
