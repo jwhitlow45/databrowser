@@ -93,6 +93,16 @@ async function editData() {
   edit_form_number.value = pokemon_arr[index]['number'];
 
   let result = await handleFetch('./php/edit.php', edit_stats_form);
+
+  // update current pokemon's data, but ensure it is still part of the query criteria
+  let temp_index = index;
+  console.log(temp_index);
+  await getData();
+  if (temp_index >= pokemon_arr.length)
+    temp_index--;
+  index = temp_index;
+  console.log(index);
+  displayPokemon();
   alert(result);
 }
 
