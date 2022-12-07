@@ -30,6 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
+    if (!file_exists($_FILES['pokemon-image']['tmp_name'])) {
+        echo json_encode('An image must be provided!');
+        die();
+    }
+
     $sql = '';
 
     if (empty($_POST['type2'])) {
@@ -75,7 +80,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         mysqli_stmt_execute($stmt);
     }
     mysqli_stmt_close($stmt);
-    echo json_encode('Successfully inserted data!');
+
+    // get desired file name of img from db (number of insertion)
+    $sql = 'SELECT `number` FROM `pokemon` ORDER BY number DESC LIMIT 1';
+    $filebasename;
+    if ($stmt = mysqli_prepare($conn, $sql)) {
+        mysqli_stmt_execute($stmt);
+        $row = mysqli_fetch_row(mysqli_stmt_get_result($stmt));
+        $filebasename = $row[0];
+    }
+    mysqli_stmt_close($stmt);
+
+    $fileinfo = pathinfo($_FILES['pokemon-image']['name']); // file path info
+    $fileext = $fileinfo['extension']; // file extension
+    $filename = $filebasename . '.' . $fileext; // build file name
+    $target = '../data/user_images/' . $filename; // final desired file path
+
+    if (move_uploaded_file($_FILES['pokemon-image']['tmp_name'], $target)) {
+        echo json_encode('Successfully inserted data!');
+    };
+
 }
 
 ?>

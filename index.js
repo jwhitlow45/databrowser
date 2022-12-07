@@ -103,7 +103,14 @@ function displayPokemon() {
   }
 
   let pokemon = pokemon_arr[index];
-  setDBImage('./data/images/' + pokemon['number'] + '.png');
+  let number = pokemon['number'];
+  let path;
+  if (number > 721) { // image in user_images
+    path = './data/user_images/' + number + '.png'
+  } else {
+    path = './data/images/' + number + '.png'
+  }
+  setDBImage(path);
 
   for (let stat in pokemon) {
     if (pokemon[stat] !== '') {
