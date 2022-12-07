@@ -80,7 +80,7 @@ input, select, option {
   text-align: center;
 }
 
-.sort-button {
+.sort-button, #toggle-edit-button {
   margin: 5px;
 }
 
@@ -100,6 +100,10 @@ input, select, option {
 .stat {
   text-transform: capitalize;
   min-width: 100px;
+}
+
+#toggle-data {
+  text-align: center;
 }
 
 #insert-div {
