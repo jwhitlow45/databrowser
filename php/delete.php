@@ -17,6 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die();
     }
     // delete image pertaining to deleted entry
+
+    if ($_POST['number']  <= 721) {
+        echo json_encode('Successfully deleted data!');
+        die();
+    }
+
     $files = glob('../data/user_images/' . $_POST['number'] . '.png');
     unlink($files[0]);
 
