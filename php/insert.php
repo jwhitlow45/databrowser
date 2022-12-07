@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ];
 
     for ($i = 0; $i < count($fields); $i++) {
-        if ($i == 3) continue; // skip check on type 2 as it is not required
+        if ($i == 2) continue; // skip check on type 2 as it is not required
         if (empty($fields[$i]) && $fields[$i] != 0) {
             echo json_encode('All fields except type 2 are required!');
             die();
