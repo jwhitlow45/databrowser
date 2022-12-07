@@ -1,225 +1,251 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta lang="en">
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="index.css">
+    <meta lang="en" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="index.css" />
     <title>example title</title>
   </head>
   <body>
-    <table>
+    <h1>Pokemon Data Browser</h1>
+    <table id="top-bar">
       <tr>
-        <td><button id="query-button">Query Form</button></td>
-        <td><button id="insert-button">Insert Form</button></td>
-        <td><button id="resetdb-button">Reset Database</button></td>
+        <td>
+          <button id="query-button" class="top-bar-button">Query Form</button>
+        </td>
+        <td>
+          <button id="insert-button" class="top-bar-button">Insert Form</button>
+        </td>
+        <td>
+          <button id="resetdb-button" class="top-bar-button">
+            Reset Database
+          </button>
+        </td>
       </tr>
     </table>
     <form id="query-form" class="form" onsubmit="return false">
-      <label name="number">Number</label>
-      <input name="number" type="number">
-      <label name="name">Name</label>
-      <input name="name" type="text">
-      <label name="type1">Type 1</label>
-      <select name="type1">
-        <option value="">None</option>
-        <option value="normal">Normal</option>
-        <option value="fire">Fire</option>
-        <option value="water">Water</option>
-        <option value="grass">Grass</option>
-        <option value="electric">Electric</option>
-        <option value="ice">Ice</option>
-        <option value="fighting">Fighting</option>
-        <option value="poison">Poison</option>
-        <option value="ground">Ground</option>
-        <option value="flying">Flying</option>
-        <option value="psychic">Psychic</option>
-        <option value="bug">Bug</option>
-        <option value="rock">Rock</option>
-        <option value="ghost">Ghost</option>
-        <option value="dark">Dark</option>
-        <option value="dragon">Dragon</option>
-        <option value="steel">Steel</option>
-        <option value="fairy">Fairy</option>
-      </select>
-      <label name="type2">Type 2</label>
-      <select name="type2">
-        <option value="">None</option>
-        <option value="normal">Normal</option>
-        <option value="fire">Fire</option>
-        <option value="water">Water</option>
-        <option value="grass">Grass</option>
-        <option value="electric">Electric</option>
-        <option value="ice">Ice</option>
-        <option value="fighting">Fighting</option>
-        <option value="poison">Poison</option>
-        <option value="ground">Ground</option>
-        <option value="flying">Flying</option>
-        <option value="psychic">Psychic</option>
-        <option value="bug">Bug</option>
-        <option value="rock">Rock</option>
-        <option value="ghost">Ghost</option>
-        <option value="dark">Dark</option>
-        <option value="dragon">Dragon</option>
-        <option value="steel">Steel</option>
-        <option value="fairy">Fairy</option>
-      </select>
-      <label name="hpmin">HP Min</label>
-      <input name="hpmin" type="number">
-      <label name="hpmax">HP Max</label>
-      <input name="hpmax" type="number">
-      <label name="attackmin">Attack Min</label>
-      <input name="attackmin" type="number">
-      <label name="attackmax">Attack Max</label>
-      <input name="attackmax" type="number">
-      <label name="defensemin">Defense Min</label>
-      <input name="defensemin" type="number">
-      <label name="defensemax">Defense Max</label>
-      <input name="defensemax" type="number">
-      <label name="spatkmin">Sp. Atk Min</label>
-      <input name="spatkmin" type="number">
-      <label name="spatkmax">Sp. Atk Max</label>
-      <input name="spatkmax" type="number">
-      <label name="spdefmin">Sp. Def Min</label>
-      <input name="spdefmin" type="number">
-      <label name="spdefmax">Sp. Def Max</label>
-      <input name="spdefmax" type="number">
-      <label name="speedmin">Speed Min</label>
-      <input name="speedmin" type="number">
-      <label name="speedmax">Speed Max</label>
-      <input name="speedmax" type="number">
-      <label name="generation">Generation</label>
-      <input name="generation" type="number">
-      <label name="legendary">Legendary</label>
-      <select name="legendary">
-        <option value="">None</option>
-        <option value="0">False</option>
-        <option value="1">True</option>
-      </select>
-      <button id="query-submit">Query</button>
-      <table id="display">
+      <table id="query-table">
         <tr>
-          <td>
-            <table>
-              <tr><td colspan="5"><img id="pokemon-image" src="./data/images/placeholder.png"></td></tr>
-              <tr>
-                <td><button id="start-button">&lt;&lt;</button></td>
-                <td><button id="prev-button">&lt;</button></td>
-                <td><button id="delete-button">Delete</button></td>
-                <td><button id="next-button">&gt;</button></td>
-                <td><button id="end-button">&gt;&gt;</button></td>
-              </tr>
-            </table>
+          <td id="query-inputs">
+            <label name="number">Number</label>
+            <input name="number" type="number" />
+            <label name="name">Name</label>
+            <input name="name" type="text" />
+            <label name="type1">Type 1</label>
+            <select name="type1">
+              <option value="">None</option>
+              <option value="normal">Normal</option>
+              <option value="fire">Fire</option>
+              <option value="water">Water</option>
+              <option value="grass">Grass</option>
+              <option value="electric">Electric</option>
+              <option value="ice">Ice</option>
+              <option value="fighting">Fighting</option>
+              <option value="poison">Poison</option>
+              <option value="ground">Ground</option>
+              <option value="flying">Flying</option>
+              <option value="psychic">Psychic</option>
+              <option value="bug">Bug</option>
+              <option value="rock">Rock</option>
+              <option value="ghost">Ghost</option>
+              <option value="dark">Dark</option>
+              <option value="dragon">Dragon</option>
+              <option value="steel">Steel</option>
+              <option value="fairy">Fairy</option>
+            </select>
+            <label name="type2">Type 2</label>
+            <select name="type2">
+              <option value="">None</option>
+              <option value="normal">Normal</option>
+              <option value="fire">Fire</option>
+              <option value="water">Water</option>
+              <option value="grass">Grass</option>
+              <option value="electric">Electric</option>
+              <option value="ice">Ice</option>
+              <option value="fighting">Fighting</option>
+              <option value="poison">Poison</option>
+              <option value="ground">Ground</option>
+              <option value="flying">Flying</option>
+              <option value="psychic">Psychic</option>
+              <option value="bug">Bug</option>
+              <option value="rock">Rock</option>
+              <option value="ghost">Ghost</option>
+              <option value="dark">Dark</option>
+              <option value="dragon">Dragon</option>
+              <option value="steel">Steel</option>
+              <option value="fairy">Fairy</option>
+            </select>
+            <label name="hpmin">HP Min</label>
+            <input name="hpmin" type="number" />
+            <label name="hpmax">HP Max</label>
+            <input name="hpmax" type="number" />
+            <label name="attackmin">Attack Min</label>
+            <input name="attackmin" type="number" />
+            <label name="attackmax">Attack Max</label>
+            <input name="attackmax" type="number" />
+            <label name="defensemin">Defense Min</label>
+            <input name="defensemin" type="number" />
+            <label name="defensemax">Defense Max</label>
+            <input name="defensemax" type="number" />
+            <label name="spatkmin">Sp. Atk Min</label>
+            <input name="spatkmin" type="number" />
+            <label name="spatkmax">Sp. Atk Max</label>
+            <input name="spatkmax" type="number" />
+            <label name="spdefmin">Sp. Def Min</label>
+            <input name="spdefmin" type="number" />
+            <label name="spdefmax">Sp. Def Max</label>
+            <input name="spdefmax" type="number" />
+            <label name="speedmin">Speed Min</label>
+            <input name="speedmin" type="number" />
+            <label name="speedmax">Speed Max</label>
+            <input name="speedmax" type="number" />
+            <label name="generation">Generation</label>
+            <input name="generation" type="number" />
+            <label name="legendary">Legendary</label>
+            <select name="legendary">
+              <option value="">None</option>
+              <option value="0">False</option>
+              <option value="1">True</option>
+            </select>
+            <button id="query-submit">Query</button>
           </td>
-          <td>
-            <table>
+          <td id="query-display">
+            <table id="display">
               <tr>
-                <td>Number</td>
-                <td id="number" class="stat">???</td>
-                <td>HP</td>
-                <td id="hp" class="stat">???</td>
-              </tr>
-              <tr>
-                <td>Name</td>
-                <td id="name" class="stat">???</td>
-                <td>Attack</td>
-                <td id="attack" class="stat">???</td>
-              </tr>
-              <tr>
-                <td>Type 1</td>
-                <td id="type1" class="stat">???</td>
-                <td>Defense</td>
-                <td id="defense" class="stat">???</td>
-              </tr>
-              <tr>
-                <td>Type 2</td>
-                <td id="type2" class="stat">???</td>
-                <td>Sp. Atk</td>
-                <td id="spatk" class="stat">???</td>
-              </tr>
-              <tr>
-                <td>Generation</td>
-                <td id="generation" class="stat">???</td>
-                <td>Sp. Def</td>
-                <td id="spdef" class="stat">???</td>
-              </tr>
-              <tr>
-                <td>Legendary</td>
-                <td id="legendary" class="stat">???</td>
-                <td>Speed</td>
-                <td id="speed" class="stat">???</td>
+                <td>
+                  <table id="display-table">
+                    <tr>
+                      <td colspan="5">
+                        <img
+                          id="pokemon-image"
+                          src="./data/images/placeholder.png"
+                        />
+                      </td>
+                    </tr>
+                    <tr id="display-controls">
+                      <td><button id="start-button">&lt;&lt;</button></td>
+                      <td><button id="prev-button">&lt;</button></td>
+                      <td><button id="delete-button">Delete</button></td>
+                      <td><button id="next-button">&gt;</button></td>
+                      <td><button id="end-button">&gt;&gt;</button></td>
+                    </tr>
+                  </table>
+                </td>
+                <td>
+                  <table id="stats-table">
+                    <tr class="stat-row">
+                      <td class="stat-label">Number</td>
+                      <td id="number" class="stat">???</td>
+                      <td class="stat-label">HP</td>
+                      <td id="hp" class="stat stat-num">???</td>
+                    </tr>
+                    <tr class="stat-row">
+                      <td class="stat-label">Name</td>
+                      <td id="name" class="stat">???</td>
+                      <td class="stat-label">Attack</td>
+                      <td id="attack" class="stat stat-num">???</td>
+                    </tr>
+                    <tr class="stat-row">
+                      <td class="stat-label">Type 1</td>
+                      <td id="type1" class="stat">???</td>
+                      <td class="stat-label">Defense</td>
+                      <td id="defense" class="stat stat-num">???</td>
+                    </tr>
+                    <tr class="stat-row">
+                      <td class="stat-label">Type 2</td>
+                      <td id="type2" class="stat">???</td>
+                      <td class="stat-label">Sp. Atk</td>
+                      <td id="spatk" class="stat stat-num">???</td>
+                    </tr>
+                    <tr class="stat-row">
+                      <td class="stat-label">Generation</td>
+                      <td id="generation" class="stat">???</td>
+                      <td class="stat-label">Sp. Def</td>
+                      <td id="spdef" class="stat stat-num">???</td>
+                    </tr>
+                    <tr class="stat-row">
+                      <td class="stat-label">Legendary</td>
+                      <td id="legendary" class="stat">???</td>
+                      <td class="stat-label">Speed</td>
+                      <td id="speed" class="stat stat-num">???</td>
+                    </tr>
+                  </table>
+                </td>
               </tr>
             </table>
           </td>
         </tr>
       </table>
     </form>
-    <form id="insert-form" class="form" onsubmit="return false" hidden>
-      <label name="name">Name</label>
-      <input name="name" type="text">
-      <label name="type1">Type 1</label>
-      <select name="type1">
-        <option value="normal">Normal</option>
-        <option value="fire">Fire</option>
-        <option value="water">Water</option>
-        <option value="grass">Grass</option>
-        <option value="electric">Electric</option>
-        <option value="ice">Ice</option>
-        <option value="fighting">Fighting</option>
-        <option value="poison">Poison</option>
-        <option value="ground">Ground</option>
-        <option value="flying">Flying</option>
-        <option value="psychic">Psychic</option>
-        <option value="bug">Bug</option>
-        <option value="rock">Rock</option>
-        <option value="ghost">Ghost</option>
-        <option value="dark">Dark</option>
-        <option value="dragon">Dragon</option>
-        <option value="steel">Steel</option>
-        <option value="fairy">Fairy</option>
-      </select>
-      <label name="type2">Type 2</label>
-      <select name="type2">
-        <option value="none">None</option>
-        <option value="normal">Normal</option>
-        <option value="fire">Fire</option>
-        <option value="water">Water</option>
-        <option value="grass">Grass</option>
-        <option value="electric">Electric</option>
-        <option value="ice">Ice</option>
-        <option value="fighting">Fighting</option>
-        <option value="poison">Poison</option>
-        <option value="ground">Ground</option>
-        <option value="flying">Flying</option>
-        <option value="psychic">Psychic</option>
-        <option value="bug">Bug</option>
-        <option value="rock">Rock</option>
-        <option value="ghost">Ghost</option>
-        <option value="dark">Dark</option>
-        <option value="dragon">Dragon</option>
-        <option value="steel">Steel</option>
-        <option value="fairy">Fairy</option>
-      </select>
-      <label name="hp">HP</label>
-      <input name="hp" type="number">
-      <label name="attack">Attack</label>
-      <input name="attack" type="number">
-      <label name="defense">Defense</label>
-      <input name="defense" type="number">
-      <label name="spatk">Sp. Atk</label>
-      <input name="spatk" type="number">
-      <label name="spdef">Sp. Def</label>
-      <input name="spdef" type="number">
-      <label name="speed">Speed</label>
-      <input name="speed" type="number">
-      <label name="generation">Generation</label>
-      <input name="generation" type="number">
-      <label name="legendary">Legendary</label>
-      <select name="legendary">
-        <option value="0">False</option>
-        <option value="1">True</option>
-      </select>
-      <input type="file" name="pokemon-image" accept="image/png">
-      <button id="insert-submit">Insert</button>
+    <form id="insert-form" class="form" onsubmit="return false" hidden="1">
+      <div id="insert-div">
+        <label name="name">Name</label>
+        <input name="name" type="text" />
+        <label name="type1">Type 1</label>
+        <select name="type1">
+          <option value="normal">Normal</option>
+          <option value="fire">Fire</option>
+          <option value="water">Water</option>
+          <option value="grass">Grass</option>
+          <option value="electric">Electric</option>
+          <option value="ice">Ice</option>
+          <option value="fighting">Fighting</option>
+          <option value="poison">Poison</option>
+          <option value="ground">Ground</option>
+          <option value="flying">Flying</option>
+          <option value="psychic">Psychic</option>
+          <option value="bug">Bug</option>
+          <option value="rock">Rock</option>
+          <option value="ghost">Ghost</option>
+          <option value="dark">Dark</option>
+          <option value="dragon">Dragon</option>
+          <option value="steel">Steel</option>
+          <option value="fairy">Fairy</option>
+        </select>
+        <label name="type2">Type 2</label>
+        <select name="type2">
+          <option value="none">None</option>
+          <option value="normal">Normal</option>
+          <option value="fire">Fire</option>
+          <option value="water">Water</option>
+          <option value="grass">Grass</option>
+          <option value="electric">Electric</option>
+          <option value="ice">Ice</option>
+          <option value="fighting">Fighting</option>
+          <option value="poison">Poison</option>
+          <option value="ground">Ground</option>
+          <option value="flying">Flying</option>
+          <option value="psychic">Psychic</option>
+          <option value="bug">Bug</option>
+          <option value="rock">Rock</option>
+          <option value="ghost">Ghost</option>
+          <option value="dark">Dark</option>
+          <option value="dragon">Dragon</option>
+          <option value="steel">Steel</option>
+          <option value="fairy">Fairy</option>
+        </select>
+        <label name="hp">HP</label>
+        <input name="hp" type="number" />
+        <label name="attack">Attack</label>
+        <input name="attack" type="number" />
+        <label name="defense">Defense</label>
+        <input name="defense" type="number" />
+        <label name="spatk">Sp. Atk</label>
+        <input name="spatk" type="number" />
+        <label name="spdef">Sp. Def</label>
+        <input name="spdef" type="number" />
+        <label name="speed">Speed</label>
+        <input name="speed" type="number" />
+        <label name="generation">Generation</label>
+        <input name="generation" type="number" />
+        <label name="legendary">Legendary</label>
+        <select name="legendary">
+          <option value="0">False</option>
+          <option value="1">True</option>
+        </select>
+        <input id="image-input" type="file" name="pokemon-image" accept="image/png" />
+        <button id="insert-submit">Insert</button>
+      </div>
     </form>
     <script src="index.js"></script>
   </body>

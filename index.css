@@ -1,8 +1,100 @@
-.stat {
-  text-transform: capitalize;
+@import url('https://fonts.cdnfonts.com/css/adobe-clean');
+
+html{
+  font-family: 'Adobe Clean', sans-serif;
+  font-family: 'Adobe Clean Serif', sans-serif;
+  font-family: 'Adobe Clean UX', sans-serif;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+input, select, option {
+  padding: 2px;
+}
+
+#top-bar {
+  display: flex;
+  justify-content: center;
+}
+
+.top-bar-button {
+  background: none;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+
+  width: 200px;
+  height: 50px;
+  margin: 10px;
+  transition: transform .5s;
+  color: white;
+  background-color: #CC0000;
+
+  border-radius: 5px;
+}
+
+.top-bar-button:hover {
+  transform: scale(1.05);
+  background-color: #EC0000;
+
+}
+
+#query-table {
+  display: flex;
+  justify-content: center;
+  margin-left: 220px;
+}
+
+#query-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+#display-table {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+#display-controls {
+  text-align: center;
+}
+
+img {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#query-submit, #insert-submit, #image-input {
+  margin-top: 10px;
 }
 
 #pokemon-image {
   width: 256px;
   height: 256px;
 }
+
+.stat-label {
+  width: 70px;
+  padding-right: 10px;
+}
+
+.stat {
+  text-transform: capitalize;
+  min-width: 100px;
+}
+
+#insert-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 200px;
+  margin: auto;
+}
+
