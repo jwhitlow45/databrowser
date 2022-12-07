@@ -14,7 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         mysqli_stmt_execute($stmt);
     } else {
         echo json_encode('Error deleting data!');
+        die();
     }
+    // delete image pertaining to deleted entry
+    $files = glob('../data/user_images/' . $_POST['number'] . '.png');
+    unlink($files[0]);
+
     mysqli_stmt_close($stmt);
     echo json_encode('Successfully deleted data!');
 }
