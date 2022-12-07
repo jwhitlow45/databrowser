@@ -12,12 +12,16 @@ query_submit.addEventListener('click', getData);
 insert_submit.addEventListener('click', insertData);
 resetdb_submit.addEventListener('click', resetDB);
 
+const sort_name_button = document.getElementById('sort-name-button');
+const sort_number_button = document.getElementById('sort-number-button');
 const start_button = document.getElementById('start-button');
 const prev_button = document.getElementById('prev-button');
 const delete_button = document.getElementById('delete-button');
 const next_button = document.getElementById('next-button');
 const end_button = document.getElementById('end-button');
 
+sort_name_button.addEventListener('click', sortByName);
+sort_number_button.addEventListener('click', sortByNumber);
 start_button.addEventListener('click', dbScrollStart);
 prev_button.addEventListener('click', function(){ dbScroll(-1)});
 delete_button.addEventListener('click', dbDelete);
@@ -173,4 +177,34 @@ function dbDelete() {
     index--;
   displayPokemon();
 }
+
+function sortByName() {
+  function compareName(a, b) {
+    if (a['name'] < b['name'])
+      return -1;
+    if (a['name'] > b['name'])
+      return 1;
+    return 0;
+  }
+
+  pokemon_arr = pokemon_arr.sort(compareName);
+  index = 0;
+  displayPokemon();
+}
+
+function sortByNumber() {
+  function compareNumber(a, b) {
+    if (a['number'] < b['number'])
+      return -1;
+    if (a['number'] > b['number'])
+      return 1;
+    return 0;
+  }
+
+  pokemon_arr = pokemon_arr.sort(compareNumber);
+  index = 0;
+  displayPokemon();
+}
+
+
 
