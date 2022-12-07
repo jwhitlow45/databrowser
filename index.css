@@ -72,6 +72,10 @@ input, select, option {
   margin-bottom: 15px;
 }
 
+#display-index {
+  text-align: center;
+}
+
 #pokemon-image {
   width: 256px;
   height: 256px;

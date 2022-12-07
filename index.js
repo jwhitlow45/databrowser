@@ -102,6 +102,7 @@ function displayPokemon() {
     const stat_values = document.getElementsByClassName('stat');
     for (let value of stat_values)
       value.innerText = '???';
+    displayIndex(true);
     return;
   }
 
@@ -114,6 +115,7 @@ function displayPokemon() {
     path = './data/images/' + number + '.png'
   }
   setDBImage(path);
+  displayIndex();
 
   for (let stat in pokemon) {
     if (pokemon[stat] !== '') {
@@ -125,6 +127,16 @@ function displayPokemon() {
       cur_stat.innerText = pokemon[stat];
     }
   }
+}
+
+function displayIndex(empty=false) {
+  const display_index = document.getElementById('display-index');
+
+  if (empty) {
+    display_index.innerText = '???';
+    return;
+  }
+  display_index.innerText = (index + 1) + '/' + pokemon_arr.length;
 }
 
 function setDBImage(path) {
