@@ -2,9 +2,11 @@ const query_button = document.getElementById('query-button');
 const insert_button = document.getElementById('insert-button');
 const resetdb_submit = document.getElementById('resetdb-button');
 const query_form = document.getElementById('query-form');
+const query_table = document.getElementById('query-table');
 const insert_form = document.getElementById('insert-form');
 const query_submit = document.getElementById('query-submit');
 const insert_submit = document.getElementById('insert-submit');
+const edit_stats_form = document.getElementById('edit-stats-form');
 
 query_button.addEventListener('click', showQueryForm);
 insert_button.addEventListener('click', showInsertForm);
@@ -19,6 +21,7 @@ const prev_button = document.getElementById('prev-button');
 const delete_button = document.getElementById('delete-button');
 const next_button = document.getElementById('next-button');
 const end_button = document.getElementById('end-button');
+const edit_toggle_button = document.getElementById('edit-toggle-button');
 
 sort_name_button.addEventListener('click', sortByName);
 sort_number_button.addEventListener('click', sortByNumber);
@@ -27,6 +30,10 @@ prev_button.addEventListener('click', function(){ dbScroll(-1)});
 delete_button.addEventListener('click', dbDelete);
 next_button.addEventListener('click', function (){ dbScroll(1)});
 end_button.addEventListener('click', dbScrollEnd);
+edit_toggle_button.addEventListener('click', toggleEdit);
+
+const edit_submit = document.getElementById('edit-submit');
+edit_submit.addEventListener('click', editData);
 
 
 let pokemon_arr = [];
@@ -54,13 +61,13 @@ async function handleFetch(url, form) {
 }
 
 function showQueryForm() {
-  insert_form.hidden = 1;
-  query_form.hidden = 0;
+  insert_form.setAttribute('hidden', 'hidden');
+  query_table.removeAttribute('hidden');
 }
 
 function showInsertForm() {
-  insert_form.hidden = 0;
-  query_form.hidden = 1;
+  query_table.setAttribute('hidden', 'hidden');
+  insert_form.removeAttribute('hidden');
 }
 
 async function resetDB() {
@@ -73,6 +80,19 @@ async function resetDB() {
 async function insertData() {
   let result = await handleFetch('./php/insert.php', insert_form);
   console.log(result);
+  alert(result);
+}
+
+async function editData() {
+  if (pokemon_arr.length < 1) {
+    alert('Cannot edit null entry!');
+    return;
+  }
+  // set form number so we can tell the server which pokemon number needs to be updated
+  const edit_form_number = document.getElementById('edit-form-number');
+  edit_form_number.value = pokemon_arr[index]['number'];
+
+  let result = await handleFetch('./php/edit.php', edit_stats_form);
   alert(result);
 }
 
@@ -204,6 +224,14 @@ function sortByNumber() {
   pokemon_arr = pokemon_arr.sort(compareNumber);
   index = 0;
   displayPokemon();
+}
+
+function toggleEdit() {
+  if (edit_stats_form.hasAttribute('hidden')) {
+    edit_stats_form.removeAttribute('hidden');
+  } else {
+    edit_stats_form.setAttribute('hidden', 'hidden');
+  }
 }
 
 

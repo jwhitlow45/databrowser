@@ -23,173 +23,270 @@
         </td>
       </tr>
     </table>
-    <form id="query-form" class="form" onsubmit="return false">
-      <table id="query-table">
-        <tr>
-          <td id="query-inputs">
-            <label name="number">Number</label>
-            <input name="number" type="number" />
-            <label name="name">Name</label>
-            <input name="name" type="text" />
-            <label name="type1">Type 1</label>
-            <select name="type1">
-              <option value="">None</option>
-              <option value="normal">Normal</option>
-              <option value="fire">Fire</option>
-              <option value="water">Water</option>
-              <option value="grass">Grass</option>
-              <option value="electric">Electric</option>
-              <option value="ice">Ice</option>
-              <option value="fighting">Fighting</option>
-              <option value="poison">Poison</option>
-              <option value="ground">Ground</option>
-              <option value="flying">Flying</option>
-              <option value="psychic">Psychic</option>
-              <option value="bug">Bug</option>
-              <option value="rock">Rock</option>
-              <option value="ghost">Ghost</option>
-              <option value="dark">Dark</option>
-              <option value="dragon">Dragon</option>
-              <option value="steel">Steel</option>
-              <option value="fairy">Fairy</option>
-            </select>
-            <label name="type2">Type 2</label>
-            <select name="type2">
-              <option value="">None</option>
-              <option value="normal">Normal</option>
-              <option value="fire">Fire</option>
-              <option value="water">Water</option>
-              <option value="grass">Grass</option>
-              <option value="electric">Electric</option>
-              <option value="ice">Ice</option>
-              <option value="fighting">Fighting</option>
-              <option value="poison">Poison</option>
-              <option value="ground">Ground</option>
-              <option value="flying">Flying</option>
-              <option value="psychic">Psychic</option>
-              <option value="bug">Bug</option>
-              <option value="rock">Rock</option>
-              <option value="ghost">Ghost</option>
-              <option value="dark">Dark</option>
-              <option value="dragon">Dragon</option>
-              <option value="steel">Steel</option>
-              <option value="fairy">Fairy</option>
-            </select>
-            <label name="hpmin">HP Min</label>
-            <input name="hpmin" type="number" />
-            <label name="hpmax">HP Max</label>
-            <input name="hpmax" type="number" />
-            <label name="attackmin">Attack Min</label>
-            <input name="attackmin" type="number" />
-            <label name="attackmax">Attack Max</label>
-            <input name="attackmax" type="number" />
-            <label name="defensemin">Defense Min</label>
-            <input name="defensemin" type="number" />
-            <label name="defensemax">Defense Max</label>
-            <input name="defensemax" type="number" />
-            <label name="spatkmin">Sp. Atk Min</label>
-            <input name="spatkmin" type="number" />
-            <label name="spatkmax">Sp. Atk Max</label>
-            <input name="spatkmax" type="number" />
-            <label name="spdefmin">Sp. Def Min</label>
-            <input name="spdefmin" type="number" />
-            <label name="spdefmax">Sp. Def Max</label>
-            <input name="spdefmax" type="number" />
-            <label name="speedmin">Speed Min</label>
-            <input name="speedmin" type="number" />
-            <label name="speedmax">Speed Max</label>
-            <input name="speedmax" type="number" />
-            <label name="generation">Generation</label>
-            <input name="generation" type="number" />
-            <label name="legendary">Legendary</label>
-            <select name="legendary">
-              <option value="">None</option>
-              <option value="0">False</option>
-              <option value="1">True</option>
-            </select>
-            <button id="query-submit">Query</button>
-          </td>
-          <td id="query-display">
-            <table id="display">
-              <tr>
-                <td>
-                  <table id="display-img">
+    <table id="query-table">
+      <tr>
+        <form id="query-form" class="form" onsubmit="return false">
+          <div id="query-div">
+            <td id="query-inputs">
+              <label name="number">Number</label>
+              <input name="number" type="number" />
+              <label name="name">Name</label>
+              <input name="name" type="text" />
+              <label name="type1">Type 1</label>
+              <select name="type1">
+                <option value="">None</option>
+                <option value="normal">Normal</option>
+                <option value="fire">Fire</option>
+                <option value="water">Water</option>
+                <option value="grass">Grass</option>
+                <option value="electric">Electric</option>
+                <option value="ice">Ice</option>
+                <option value="fighting">Fighting</option>
+                <option value="poison">Poison</option>
+                <option value="ground">Ground</option>
+                <option value="flying">Flying</option>
+                <option value="psychic">Psychic</option>
+                <option value="bug">Bug</option>
+                <option value="rock">Rock</option>
+                <option value="ghost">Ghost</option>
+                <option value="dark">Dark</option>
+                <option value="dragon">Dragon</option>
+                <option value="steel">Steel</option>
+                <option value="fairy">Fairy</option>
+              </select>
+              <label name="type2">Type 2</label>
+              <select name="type2">
+                <option value="">None</option>
+                <option value="normal">Normal</option>
+                <option value="fire">Fire</option>
+                <option value="water">Water</option>
+                <option value="grass">Grass</option>
+                <option value="electric">Electric</option>
+                <option value="ice">Ice</option>
+                <option value="fighting">Fighting</option>
+                <option value="poison">Poison</option>
+                <option value="ground">Ground</option>
+                <option value="flying">Flying</option>
+                <option value="psychic">Psychic</option>
+                <option value="bug">Bug</option>
+                <option value="rock">Rock</option>
+                <option value="ghost">Ghost</option>
+                <option value="dark">Dark</option>
+                <option value="dragon">Dragon</option>
+                <option value="steel">Steel</option>
+                <option value="fairy">Fairy</option>
+              </select>
+              <label name="hpmin">HP Min</label>
+              <input name="hpmin" type="number" />
+              <label name="hpmax">HP Max</label>
+              <input name="hpmax" type="number" />
+              <label name="attackmin">Attack Min</label>
+              <input name="attackmin" type="number" />
+              <label name="attackmax">Attack Max</label>
+              <input name="attackmax" type="number" />
+              <label name="defensemin">Defense Min</label>
+              <input name="defensemin" type="number" />
+              <label name="defensemax">Defense Max</label>
+              <input name="defensemax" type="number" />
+              <label name="spatkmin">Sp. Atk Min</label>
+              <input name="spatkmin" type="number" />
+              <label name="spatkmax">Sp. Atk Max</label>
+              <input name="spatkmax" type="number" />
+              <label name="spdefmin">Sp. Def Min</label>
+              <input name="spdefmin" type="number" />
+              <label name="spdefmax">Sp. Def Max</label>
+              <input name="spdefmax" type="number" />
+              <label name="speedmin">Speed Min</label>
+              <input name="speedmin" type="number" />
+              <label name="speedmax">Speed Max</label>
+              <input name="speedmax" type="number" />
+              <label name="generation">Generation</label>
+              <input name="generation" type="number" />
+              <label name="legendary">Legendary</label>
+              <select name="legendary">
+                <option value="">None</option>
+                <option value="0">False</option>
+                <option value="1">True</option>
+              </select>
+              <button id="query-submit">Query</button>
+            </td>
+          </div>
+        </form>
+        <td id="query-display">
+          <table id="display">
+            <tr>
+              <td>
+                <table id="display-img">
+                  <tr>
+                    <td id="display-index" colspan="5">???</td>
+                  </tr>
+                  <tr>
+                    <td colspan="5">
+                      <img
+                        id="pokemon-image"
+                        src="./data/images/placeholder.png"
+                      />
+                    </td>
+                  </tr>
+                  <tr id="display-sort">
+                    <td colspan="5">
+                      <button id="sort-name-button" class="sort-button">Sort By Name</button>
+                      <button id="sort-number-button" class="sort-button">Sort By Number</button>
+                    </td>
+                  </tr>
+                  <tr id="display-controls">
+                    <td><button id="start-button">&lt;&lt;</button></td>
+                    <td><button id="prev-button">&lt;</button></td>
+                    <td><button id="delete-button">Delete</button></td>
+                    <td><button id="next-button">&gt;</button></td>
+                    <td><button id="end-button">&gt;&gt;</button></td>
+                  </tr>
+                  <tr><td colspan="5" id="edit-button-cell"><button id="edit-toggle-button">Toggle Edit</button></td></tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table id="stats-table">
+                  <tr class="stat-row">
+                    <td class="stat-label">Number</td>
+                    <td id="number" class="stat">???</td>
+                    <td class="stat-label">HP</td>
+                    <td id="hp" class="stat stat-num">???</td>
+                  </tr>
+                  <tr class="stat-row">
+                    <td class="stat-label">Name</td>
+                    <td id="name" class="stat">???</td>
+                    <td class="stat-label">Attack</td>
+                    <td id="attack" class="stat stat-num">???</td>
+                  </tr>
+                  <tr class="stat-row">
+                    <td class="stat-label">Type 1</td>
+                    <td id="type1" class="stat">???</td>
+                    <td class="stat-label">Defense</td>
+                    <td id="defense" class="stat stat-num">???</td>
+                  </tr>
+                  <tr class="stat-row">
+                    <td class="stat-label">Type 2</td>
+                    <td id="type2" class="stat">???</td>
+                    <td class="stat-label">Sp. Atk</td>
+                    <td id="spatk" class="stat stat-num">???</td>
+                  </tr>
+                  <tr class="stat-row">
+                    <td class="stat-label">Generation</td>
+                    <td id="generation" class="stat">???</td>
+                    <td class="stat-label">Sp. Def</td>
+                    <td id="spdef" class="stat stat-num">???</td>
+                  </tr>
+                  <tr class="stat-row">
+                    <td class="stat-label">Legendary</td>
+                    <td id="legendary" class="stat">???</td>
+                    <td class="stat-label">Speed</td>
+                    <td id="speed" class="stat stat-num">???</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <form id="edit-stats-form" onsubmit="return false">
+                  <table id="edit-stats-table">
                     <tr>
-                      <td id="display-index" colspan="5">???</td>
+                      <td>Name</td>
+                      <td><input name="name" type="text" /></td>
+                      <td>HP</td>
+                      <td><input name="hp" type="number" /></td>
                     </tr>
                     <tr>
-                      <td colspan="5">
-                        <img
-                          id="pokemon-image"
-                          src="./data/images/placeholder.png"
-                        />
+                      <td>Type1</td>
+                      <td>
+                        <select name="type1">
+                          <option value="">None</option>
+                          <option value="normal">Normal</option>
+                          <option value="fire">Fire</option>
+                          <option value="water">Water</option>
+                          <option value="grass">Grass</option>
+                          <option value="electric">Electric</option>
+                          <option value="ice">Ice</option>
+                          <option value="fighting">Fighting</option>
+                          <option value="poison">Poison</option>
+                          <option value="ground">Ground</option>
+                          <option value="flying">Flying</option>
+                          <option value="psychic">Psychic</option>
+                          <option value="bug">Bug</option>
+                          <option value="rock">Rock</option>
+                          <option value="ghost">Ghost</option>
+                          <option value="dark">Dark</option>
+                          <option value="dragon">Dragon</option>
+                          <option value="steel">Steel</option>
+                          <option value="fairy">Fairy</option>
+                        </select>
                       </td>
+                      <td>Attack</td>
+                      <td><input name="attack" type="number" /></td>
                     </tr>
-                    <tr id="display-sort">
-                      <td colspan="5">
-                        <button id="sort-name-button" class="sort-button">Sort By Name</button>
-                        <button id="sort-number-button" class="sort-button">Sort By Number</button>
+                    <tr>
+                      <td>Type2</td>
+                      <td>
+                        <select name="type2">
+                          <option value="">None</option>
+                          <option value="normal">Normal</option>
+                          <option value="fire">Fire</option>
+                          <option value="water">Water</option>
+                          <option value="grass">Grass</option>
+                          <option value="electric">Electric</option>
+                          <option value="ice">Ice</option>
+                          <option value="fighting">Fighting</option>
+                          <option value="poison">Poison</option>
+                          <option value="ground">Ground</option>
+                          <option value="flying">Flying</option>
+                          <option value="psychic">Psychic</option>
+                          <option value="bug">Bug</option>
+                          <option value="rock">Rock</option>
+                          <option value="ghost">Ghost</option>
+                          <option value="dark">Dark</option>
+                          <option value="dragon">Dragon</option>
+                          <option value="steel">Steel</option>
+                          <option value="fairy">Fairy</option>
+                        </select>
                       </td>
+                      <td>Defense</td>
+                      <td><input name="defense" type="number" /></td>
                     </tr>
-                    <tr id="display-controls">
-                      <td><button id="start-button">&lt;&lt;</button></td>
-                      <td><button id="prev-button">&lt;</button></td>
-                      <td><button id="delete-button">Delete</button></td>
-                      <td><button id="next-button">&gt;</button></td>
-                      <td><button id="end-button">&gt;&gt;</button></td>
+                    <tr>
+                      <td>Generation</td>
+                      <td><input name="generation" type="number" /></td>
+                      <td>Sp. Atk</td>
+                      <td><input name="spatk" type="number" /></td>
                     </tr>
-                    <tr><td colspan="5" id="toggle-data"><button id="toggle-edit-button">Toggle Edit</button></td></tr>
+                    <tr>
+                      <td>Legendary</td>
+                      <td>
+                        <select name="legendary">
+                          <option value="">None</option>
+                          <option value="0">False</option>
+                          <option value="1">True</option>
+                        </select>
+                      </td>
+                      <td>Sp. Def</td>
+                      <td><input name="spdef" type="number" /></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"></td>
+                      <td>Speed</td>
+                      <td><input name="speed" type="number" /></td>
+                    </tr>
+                    <tr><td colspan="4" id="edit-submit-cell"><button id="edit-submit">Edit</button></td></tr>
                   </table>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <table id="stats-table">
-                    <tr class="stat-row">
-                      <td class="stat-label">Number</td>
-                      <td id="number" class="stat">???</td>
-                      <td class="stat-label">HP</td>
-                      <td id="hp" class="stat stat-num">???</td>
-                    </tr>
-                    <tr class="stat-row">
-                      <td class="stat-label">Name</td>
-                      <td id="name" class="stat">???</td>
-                      <td class="stat-label">Attack</td>
-                      <td id="attack" class="stat stat-num">???</td>
-                    </tr>
-                    <tr class="stat-row">
-                      <td class="stat-label">Type 1</td>
-                      <td id="type1" class="stat">???</td>
-                      <td class="stat-label">Defense</td>
-                      <td id="defense" class="stat stat-num">???</td>
-                    </tr>
-                    <tr class="stat-row">
-                      <td class="stat-label">Type 2</td>
-                      <td id="type2" class="stat">???</td>
-                      <td class="stat-label">Sp. Atk</td>
-                      <td id="spatk" class="stat stat-num">???</td>
-                    </tr>
-                    <tr class="stat-row">
-                      <td class="stat-label">Generation</td>
-                      <td id="generation" class="stat">???</td>
-                      <td class="stat-label">Sp. Def</td>
-                      <td id="spdef" class="stat stat-num">???</td>
-                    </tr>
-                    <tr class="stat-row">
-                      <td class="stat-label">Legendary</td>
-                      <td id="legendary" class="stat">???</td>
-                      <td class="stat-label">Speed</td>
-                      <td id="speed" class="stat stat-num">???</td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
-    </form>
-    <form id="insert-form" class="form" onsubmit="return false" hidden="1">
+                  <input id="edit-form-number" name="number" hidden></input>
+                </form>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <form id="insert-form" class="form" onsubmit="return false" hidden>
       <div id="insert-div">
         <label name="name">Name</label>
         <input name="name" type="text" />
