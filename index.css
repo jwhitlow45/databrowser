@@ -48,7 +48,6 @@ input, select, option {
 #query-table {
   display: flex;
   justify-content: center;
-  margin-left: 220px;
 }
 
 #query-inputs {
@@ -56,28 +55,29 @@ input, select, option {
   flex-direction: column;
 }
 
-#display-table {
-  padding-left: 32px;
-  padding-right: 32px;
-}
-
 #display-controls {
   text-align: center;
-}
-
-img {
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 5px;
 }
 
 #query-submit, #insert-submit, #image-input {
   margin-top: 10px;
 }
 
+#display {
+  padding-left: 32px;
+}
+
+#display-img {
+  margin-left: 5px;
+  margin-bottom: 15px;
+}
+
 #pokemon-image {
   width: 256px;
   height: 256px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 .stat-label {
