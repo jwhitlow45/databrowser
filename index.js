@@ -61,6 +61,7 @@ function showInsertForm() {
 
 async function resetDB() {
   await handleFetch('./php/cleardb.php', null);
+  window.location.reload();
 }
 
 async function insertData() {
